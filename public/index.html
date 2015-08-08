@@ -107,6 +107,9 @@
                     if (xmlhttp.readyState==4 && xmlhttp.status==200)
                     {
                         var result = JSON.parse(xmlhttp.responseText);
+                        if ("Error" in result) {
+                            return;
+                        }
                         for (var k in result) {
                             if (result[k].length <= 30) {
                                 fetchSentence(sentence, src, tgt, start, end, callback);
@@ -119,8 +122,6 @@
                 var params = "input=" + sentence;
                 xmlhttp.open("POST", "/" + src + "/" +tgt + "/" + start + "/" + end + "/", true);
                 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xmlhttp.setRequestHeader("Content-length", params.length);
-                xmlhttp.setRequestHeader("Connection", "close");
                 xmlhttp.send(params);
             }
             function fetchTranslations()

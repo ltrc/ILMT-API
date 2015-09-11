@@ -126,7 +126,7 @@
             }
             function fetchTranslations()
             {
-                var sentences = document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm,"").split('।');
+                var sentences = document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm,"").match(/\(?(.*?)[^।\?!]+[।!\?]\)?/g);
                 for (i = 0; i < sentences.length; i++) {
                     sentences[i] = sentences[i].trim();
                     if (sentences[i].length > 0) {

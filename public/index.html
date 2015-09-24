@@ -135,18 +135,80 @@
                     }
                 }
             }
+            var srcLangs = [];
+            var tgtLangs = [];
+            var langPairs = {};
+            function fillLangPairs() {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    langPairs = JSON.parse(xmlHttp.responseText);
+                    for (var src in langPairs) {
+                        srcLangs.push(src);
+                        for (var tgtIndex in langPairs[src]) {
+                            tgtLangs.push(langPairs[src][tgtIndex]);
+                        }
+                    }
+                    var srcLangSelect = document.getElementById('srcLangs');
+                    var tgtLangSelect = document.getElementById('tgtLangs');
+                    for (var i in srcLangs) {
+                        var opt = document.createElement('option');
+                        opt.value = srcLangs[i];
+                        opt.innerHTML = srcLangs[i];
+                        srcLangSelect.appendChild(opt);
+                    }
+                    for (var i in tgtLangs) {
+                        var opt = document.createElement('option');
+                        opt.value = tgtLangs[i];
+                        opt.innerHTML = tgtLangs[i];
+                        tgtLangSelect.appendChild(opt);
+                    }
+                }
+                xmlHttp.open("GET", '/langpairs', true);
+                xmlHttp.send(null);
+            }
+            window.onload = fillLangPairs;
         </script>
         <div id="query">
-            <textarea rows="4" cols="50" name="sentences" id="input">
-                Enter Sentences Here
-            </textarea>
-            <br>
-            <button onclick="fetchTranslations()">Submit</button>
-            <button onclick="eraseText('input')">Clear</button>
+            <table>
+                <tr>
+                    <td style="text-align:right">
+                        <select id="srcLangs">
+                        </select>
+                    </td>
+                    <td style="text-align:left">
+                        <select id="tgtLangs">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea rows="10" cols="100" name="sentences" id="input">
+                        </textarea>
+                    </td>
+                    <td>
+                        <textarea rows="10" cols="100" id="output">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2", style="text-align:center">
+                        <button onclick="fetchTranslations()">Submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:left">
+                        <button onclick="eraseText('input')">Clear</button>
+                    </td>
+                    <td style="text-align:right">
+                        <button onclick="eraseText('output')">Clear</button>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="output" class="results">
             <table style="width:100%" id="translate" class="comparison">
             </table>
         </div>
-    </body>
-</html>
+        </body>
+        </html>

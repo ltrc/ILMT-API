@@ -54,7 +54,8 @@
                     ssfInput.setAttribute("onClick", "javascript: specialUpdate('" + ssfTable.id+ "','" + k +"','" + input.id + "','" + src + "','" + tgt + "');");
                     ssfRow.insertCell().appendChild(ssfInput);
                 }
-                var worgGenOut = result["wordgenerator-" + Object.keys(result).length].split('\n');
+                var moduleCount = pairModuleCounts[src][tgt];
+                var worgGenOut = result[pairModuleNames[src][tgt][moduleCount - 1] + '-' + moduleCount].split('\n');
                 var tgt_txt = "";
                 for (var i in worgGenOut) {
                     var ssf = worgGenOut[i].split("\t")
@@ -113,7 +114,7 @@
                         currRow.insertCell().appendChild(ssfInput);
                     }
                 }
-                fetchSentence(input, src, tgt, start + 1, 23, callback);
+                fetchSentence(input, src, tgt, start + 1, pairModuleCounts[src][tgt], callback);
             }
             function fetchSentence(sentence, src, tgt, start, end, callback) {
                 var xmlhttp = new XMLHttpRequest();
@@ -138,21 +139,45 @@
                 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xmlhttp.send(params);
             }
+            function updateModuleCount(srcLang, tgtLang) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    pairModuleCounts[srcLang][tgtLang] = xmlHttp.responseText;
+                }
+                xmlHttp.open("GET", '/' + srcLang + '/' + tgtLang, true);
+                xmlHttp.send(null);
+            }
+            function updateModuleNames(srcLang, tgtLang) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    pairModuleNames[srcLang][tgtLang] = JSON.parse(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", '/' + srcLang + '/' + tgtLang + '/modules', true);
+                xmlHttp.send(null);
+            }
             function fetchTranslations()
             {
                 translatorHash = {};
                 sentences = document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm,"").match(/\(?(.*?)[^।\?!]+[।!\?]\)?/g);
+                var srcLangSelect = document.getElementById('srcLangs');
+                var tgtLangSelect = document.getElementById('tgtLangs');
+                var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
+                var tgtLang = tgtLangSelect.options[tgtLangSelect.selectedIndex].value;
                 for (i = 0; i < sentences.length; i++) {
                     sentences[i] = sentences[i].trim();
                     if (sentences[i].length > 0) {
                         //console.log(sentences[i]);
-                        fetchSentence(sentences[i], "hin", "pan", 1, 23, fillTable);
+                        fetchSentence(sentences[i], srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang], fillTable);
                     }
                 }
             }
             var srcLangs = [];
             var tgtLangs = [];
             var langPairs = {};
+            var pairModuleCounts = {};
+            var pairModuleNames = {};
             function fillLangPairs() {
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() {
@@ -160,8 +185,13 @@
                     langPairs = JSON.parse(xmlHttp.responseText);
                     for (var src in langPairs) {
                         srcLangs.push(src);
+                        pairModuleCounts[src] = {};
+                        pairModuleNames[src] = {};
                         for (var tgtIndex in langPairs[src]) {
-                            tgtLangs.push(langPairs[src][tgtIndex]);
+                            var tgt = langPairs[src][tgtIndex];
+                            tgtLangs.push(tgt);
+                            updateModuleCount(src, tgt);
+                            updateModuleNames(src, tgt);
                         }
                     }
                     var srcLangSelect = document.getElementById('srcLangs');
@@ -180,7 +210,6 @@
                 // Safety Check
                 if (item.selectedIndex >= 0) {
                     var srcLang = item.options[item.selectedIndex].value;
-                    console.log(srcLang);
                     var availableTgtLangs = langPairs[srcLang];
                     var tgtLangSelect = document.getElementById('tgtLangs');
                     tgtLangSelect.innerHTML = "";

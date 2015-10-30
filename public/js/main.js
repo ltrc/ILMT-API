@@ -228,7 +228,7 @@ function tokenizeInput(sentence, src, tgt, start, end, callback) {
             var tokenizedInput = result["tokenizer-1"].replace(/(\r\n|\n|\r)/gm,"");
             var match = myRegexp.exec(tokenizedInput);
             while (match != null) {
-                var sentence = match[2].replace(/(\d+\t)/gm,"").replace(/\tunk/gm," ");
+                var sentence = match[2].replace(/\tunk/gm," ").replace(/(\d+\t)/gm,"");
                 sentences.push(sentence);
                 fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable);
                 match = myRegexp.exec(tokenizedInput);

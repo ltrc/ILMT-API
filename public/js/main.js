@@ -80,7 +80,7 @@ function fillOutput() {
     var result = "";
     for (var i = 0; i < sentences.length; i++) {
         if (sentences[i] in translatorHash) {
-            result += translatorHash[sentences[i]];
+            result += translatorHash[sentences[i]] + '\n';
         }
     }
     outputArea.innerHTML = result;

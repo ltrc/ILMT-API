@@ -162,7 +162,12 @@ function fetchTranslations()
     var tgtLangSelect = document.getElementById('tgtLangs');
     var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
     var tgtLang = tgtLangSelect.options[tgtLangSelect.selectedIndex].value;
-    tokenizeInput(document.getElementById("input").value, srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
+    var paragraphUnits = document.getElementById("input").value.split('\n');
+    for (i = 0; i < paragraphUnits.length; i++) {
+        if (paragraphUnits[i].length > 0) {
+            tokenizeInput(paragraphUnits[i], srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
+        }
+    }
 }
 var srcLangs = [];
 var tgtLangs = [];

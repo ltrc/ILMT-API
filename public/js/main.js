@@ -55,7 +55,7 @@ var fillTable = function(sentence, result, src, tgt) {
     var tgt_txt = "";
     for (var i in worgGenOut) {
         var ssf = worgGenOut[i].split("\t")
-        if (ssf[0].match(/\d+.\d+/) && ssf[1].match('[^(]')) {
+        if (ssf[0].match(/\d+.\d+/) && ssf[1] != '((') {
             tgt_txt += ssf[1] + " ";
         }
     }

@@ -158,18 +158,11 @@ function updateModuleNames(srcLang, tgtLang) {
 function fetchTranslations()
 {
     translatorHash = {};
-    sentences = document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm,"").match(/\(?(.*?)[^।\?!]+[।!\?]\)?/g);
     var srcLangSelect = document.getElementById('srcLangs');
     var tgtLangSelect = document.getElementById('tgtLangs');
     var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
     var tgtLang = tgtLangSelect.options[tgtLangSelect.selectedIndex].value;
-    for (i = 0; i < sentences.length; i++) {
-        sentences[i] = sentences[i].trim();
-        if (sentences[i].length > 0) {
-            //console.log(sentences[i]);
-            fetchSentence(sentences[i], srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang], 0, fillTable);
-        }
-    }
+    tokenizeInput(document.getElementById("input").value, srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
 }
 var srcLangs = [];
 var tgtLangs = [];
@@ -221,5 +214,30 @@ function updateTgtLangDropDown(item) {
 }
 function clearText(id) {
     document.getElementById(id).innerHTML = "";
+}
+function tokenizeInput(sentence, src, tgt, start, end, callback) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            var result = JSON.parse(xmlhttp.responseText);
+            if ("Error" in result) {
+                return;
+            }
+            var myRegexp = /(<Sentence id=.*?>)(.*?)(<\/Sentence>)/g;
+            var tokenizedInput = result["tokenizer-1"].replace(/(\r\n|\n|\r)/gm,"");
+            var match = myRegexp.exec(tokenizedInput);
+            while (match != null) {
+                var sentence = match[2].replace(/(\d+\t)/gm,"").replace(/\tunk/gm," ");
+                sentences.push(sentence);
+                fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable);
+                match = myRegexp.exec(tokenizedInput);
+            }
+        }
+    }
+    var params = "input=" + sentence;
+    xmlhttp.open("POST", "/" + src + "/" +tgt + "/1/1", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(params);
 }
 window.onload = fillLangPairs;

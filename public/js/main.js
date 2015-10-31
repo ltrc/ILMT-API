@@ -164,8 +164,8 @@ function fetchTranslations()
     var tgtLang = tgtLangSelect.options[tgtLangSelect.selectedIndex].value;
     var paragraphUnits = document.getElementById("input").value.split('\n');
     for (i = 0; i < paragraphUnits.length; i++) {
-        if (paragraphUnits[i].length > 0) {
-            tokenizeInput(paragraphUnits[i], srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
+        if (paragraphUnits[i].trim().length > 0) {
+            tokenizeInput(paragraphUnits[i].trim(), srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
         }
     }
 }
@@ -220,7 +220,7 @@ function updateTgtLangDropDown(item) {
 function clearText(id) {
     document.getElementById(id).innerHTML = "";
 }
-function tokenizeInput(sentence, src, tgt, start, end, callback) {
+function tokenizeInput(input, src, tgt, start, end, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -240,7 +240,7 @@ function tokenizeInput(sentence, src, tgt, start, end, callback) {
             }
         }
     }
-    var params = "input=" + sentence;
+    var params = "input=" + input;
     xmlhttp.open("POST", "/" + src + "/" +tgt + "/1/1", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(params);

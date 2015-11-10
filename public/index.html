@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <script src="js/main.js"></script>
-        <div id="query">
-            <table>
-                <tr>
-                    <td style="text-align:right">
-                        <select id="srcLangs" onChange="updateTgtLangDropDown(this)">
-                        </select>
-                    </td>
-                    <td style="text-align:left">
-                        <select id="tgtLangs">
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea rows="10" cols="100" name="sentences" id="input">
-                        </textarea>
-                    </td>
-                    <td>
-                        <textarea readonly rows="10" cols="100" id="output">
-                        </textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center">
-                        <button onclick="fetchTranslations()">Submit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align:left">
-                        <button onclick="eraseText('input')">Clear</button>
-                    </td>
-                    <td style="text-align:right">
-                        <button onclick="clearText('output')">Clear</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div id="output" class="results">
-            <table style="width:100%" id="translate" class="comparison">
-            </table>
-        </div>
-        </body>
-        </html>
+<body>
+<script src="js/main.js"></script>
+<div id="query">
+    <table>
+        <tr>
+            <td style="text-align:right">
+                <select id="srcLangs" onChange="updateTgtLangDropDown(this)">
+                </select>
+            </td>
+            <td style="text-align:left">
+                <select id="tgtLangs">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea rows="10" cols="100" name="sentences" id="input">
+                </textarea>
+            </td>
+            <td>
+                <textarea readonly rows="10" cols="100" id="output">
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <button onclick="fetchTranslations()">Submit</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left">
+                <button onclick="eraseText('input')">Clear</button>
+            </td>
+            <td style="text-align:right">
+                <button onclick="clearText('output')">Clear</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="output" class="results">
+    <table style="width:100%" id="translate" class="comparison">
+    </table>
+</div>
+</body>
+</html>

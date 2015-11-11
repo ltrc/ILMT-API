@@ -13,6 +13,11 @@ var ISO_639RevMappings = {
     "pan": "Punjabi (ਪੰਜਾਬੀ)",
     "urd": "Urdu (اردو)"
 }
+var ISO_639_3_to_2Mapping = {
+    "hin": "hi",
+    "pan": "pa",
+    "urd": "ur"
+}
 function toggleDisplay(elementID) {
     (function(style) {
         style.display = style.display === 'none' ? '' : 'none';
@@ -25,13 +30,16 @@ function toggleImage(item) {
         item.setAttribute('src', "/images/down.png");
     }
 }
-function erasePreviousTranslations() {
+function eraseTranslateTable() {
     [].forEach.call(document.querySelectorAll('.ssf'),function(e){
         e.parentNode.removeChild(e);
     });
     [].forEach.call(document.getElementById('translate').children,function(e){
         e.parentNode.removeChild(e);
     });
+}
+function erasePreviousTranslations() {
+    eraseTranslateTable();
     clearText('input');
     clearText('output');
 }
@@ -74,15 +82,28 @@ function fillTable(sentence, result, src, tgt) {
     }
     var table = document.getElementById("translate");
     var row = table.insertRow();
-    row.insertCell().innerHTML = sentence;
+    var cell = row.insertCell();
+    cell.innerHTML = sentence;
+    cell.className = "col-lg-5";
     var ssfInput = document.createElement("input");
     ssfInput.setAttribute("src", "/images/down.png");
     ssfInput.setAttribute("type", "image");
     ssfInput.setAttribute("alt", "Submit");
     ssfInput.setAttribute("style", "width: 20px;height:20px");
     ssfInput.setAttribute("onClick", "javascript: toggleImage(this); toggleDisplay('" + ssfTable.id + "');");
-    row.insertCell().appendChild(ssfInput);
-    row.insertCell().innerHTML = tgt_txt;
+    cell = row.insertCell();
+    cell.appendChild(ssfInput);
+    cell.className = "col-lg-1";
+    var tgtArea = document.createElement('textArea');
+    tgtArea.className = "form-control";
+    tgtArea.setAttribute('onfocus', "setKeyboard('tgtLangs')");
+    tgtArea.innerHTML = tgt_txt;
+    $(tgtArea).ime();
+    autosize(tgtArea);
+    tgtArea.dispatchEvent(autosizeEvt);
+    cell = row.insertCell();
+    cell.appendChild(tgtArea);
+    cell.className = "col-lg-5";
     row = table.insertRow();
     row.insertCell().appendChild(ssfTable);
     translatedSentences.push(tgt_txt);
@@ -166,6 +187,7 @@ function updateModuleNames(srcLang, tgtLang) {
 }
 function fetchTranslations() {
     translatedSentences = [];
+    eraseTranslateTable();
     updateProgressBar();
     clearText('output');
     sentenceCount = 0;
@@ -260,11 +282,19 @@ function updateProgressBar() {
     var progress = (translatedSentences.length / sentenceCount) * 100;
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
 }
-autosize(document.querySelector('#input'));
-autosize(document.querySelector('#output'));
-autosizeEvt.initEvent('autosize:update', true, false);
-window.onload = fillLangPairs;
-$('.selectpicker').selectpicker();
-$('#pb').css({
-    'background-color': '#A9A9A9',
+function setKeyboard(id) {
+    var lang = ISO_639_3_to_2Mapping[$('#' + id).val()];
+    $.ime.preferences.setLanguage(lang);
+    $.ime.preferences.setIM($.ime.languages[lang].inputmethods[0]);
+}
+$(document).ready(function() {
+    fillLangPairs();
+    $('.selectpicker').selectpicker();
+    $('#pb').css({
+        'background-color': '#A9A9A9',
+    });
+    autosize(document.querySelector('#input'));
+    autosize(document.querySelector('#output'));
+    autosizeEvt.initEvent('autosize:update', true, false);
+    $('#input').ime();
 });

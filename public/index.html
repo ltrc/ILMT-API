@@ -4,17 +4,22 @@
     <meta charset="utf-8">
         <title>ILMT Pipelines</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/libs/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/libs/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/libs/jquery.ime/jquery.ime.css">
     <style type="text/css">
-        textarea {
+        #output, #input {
             min-height: 150px;
         }
     </style>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.ime/jquery.ime.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.ime/jquery.ime.selector.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.ime/jquery.ime.preferences.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.ime/jquery.ime.inputmethods.js"></script>
     <script type="text/javascript" src="js/autosize.min.js"></script>
     <script type="text/javascript" src="js/main.js" defer></script>
 </head>
@@ -52,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <textarea class="form-control" name="sentences" id="input" placeholder="Enter Source Language Text"></textarea>
+                <textarea class="form-control" name="sentences" id="input" placeholder="Enter Source Language Text" onfocus="setKeyboard('srcLangs')"></textarea>
             </div>
             <div class="col-lg-6">
                 <textarea class="form-control" readonly id="output" placeholder="Target Language Text Will Appear Here"></textarea>

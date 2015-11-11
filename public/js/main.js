@@ -51,7 +51,7 @@ function fillTable(sentence, result, src, tgt) {
         input.maxLength = "5000";
         input.cols = "50";
         input.rows = "10";
-        input.className = "ssf";
+        input.className = "ssf form-control";
         input.innerHTML = result[k];
         input.id = getUniqID();
         ssfRow.insertCell().appendChild(input);
@@ -106,7 +106,7 @@ function specialUpdate(tableid, rowid, textid, src, tgt) {
             input.maxLength = "5000";
             input.cols = "50";
             input.rows = "10";
-            input.className = "ssf";
+            input.className = "ssf form-control";
             input.innerHTML = result[k];
             input.id = getUniqID();
             currRow.insertCell().appendChild(input);

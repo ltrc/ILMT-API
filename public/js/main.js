@@ -1,7 +1,17 @@
 var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
 
 var translatorHash = {};
-var sentences = [];
+var srcLangs = [];
+var tgtLangs = [];
+var langPairs = {};
+var pairModuleCounts = {};
+var pairModuleNames = {};
+var autosizeEvt = document.createEvent('Event');
+var ISO_639RevMappings = {
+    "hin": "Hindi (हिन्दी)",
+    "pan": "Punjabi (ਪੰਜਾਬੀ)",
+    "urd": "Urdu (اردو)"
+}
 function toggleDisplay(elementID) {
     (function(style) {
         style.display = style.display === 'none' ? '' : 'none';
@@ -14,19 +24,20 @@ function toggleImage(item) {
         item.setAttribute('src', "/images/down.png");
     }
 }
-function eraseText(id) {
-    document.getElementById(id).value = "";
+function erasePreviousTranslations() {
     [].forEach.call(document.querySelectorAll('.ssf'),function(e){
         e.parentNode.removeChild(e);
     });
     [].forEach.call(document.getElementById('translate').children,function(e){
         e.parentNode.removeChild(e);
     });
+    clearText('input');
+    clearText('output');
 }
 function getUniqID() {
     return 't' + Math.random().toString(36).substring(7);
 }
-var fillTable = function(sentence, result, src, tgt) {
+function fillTable(sentence, result, src, tgt) {
     var ssfTable = document.createElement("table");
     ssfTable.setAttribute("style", "display:none");
     ssfTable.id = getUniqID();
@@ -77,13 +88,12 @@ var fillTable = function(sentence, result, src, tgt) {
 }
 function fillOutput() {
     var outputArea = document.getElementById("output");
-    var result = "";
-    for (var i = 0; i < sentences.length; i++) {
-        if (sentences[i] in translatorHash) {
-            result += translatorHash[sentences[i]] + '\n';
-        }
-    }
-    outputArea.innerHTML = result;
+    var result = [];
+    Object.keys(translatorHash).forEach(function(sentence) {
+        result.push(translatorHash[sentence]);
+    })
+    outputArea.value = result.join('\n');
+    outputArea.dispatchEvent(autosizeEvt);
 }
 function specialUpdate(tableid, rowid, textid, src, tgt) {
     var table = document.getElementById(tableid);
@@ -158,6 +168,7 @@ function updateModuleNames(srcLang, tgtLang) {
 function fetchTranslations()
 {
     translatorHash = {};
+    clearText('output');
     var srcLangSelect = document.getElementById('srcLangs');
     var tgtLangSelect = document.getElementById('tgtLangs');
     var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
@@ -169,11 +180,6 @@ function fetchTranslations()
         }
     }
 }
-var srcLangs = [];
-var tgtLangs = [];
-var langPairs = {};
-var pairModuleCounts = {};
-var pairModuleNames = {};
 function fillLangPairs() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -194,9 +200,10 @@ function fillLangPairs() {
         for (var i in srcLangs) {
             var opt = document.createElement('option');
             opt.value = srcLangs[i];
-            opt.innerHTML = srcLangs[i];
+            opt.innerHTML = ISO_639RevMappings[opt.value];
             srcLangSelect.appendChild(opt);
         }
+
         updateTgtLangDropDown(srcLangSelect);
     }
     xmlHttp.open("GET", '/langpairs', true);
@@ -212,13 +219,17 @@ function updateTgtLangDropDown(item) {
         for (var i in availableTgtLangs) {
             var opt = document.createElement('option');
             opt.value = availableTgtLangs[i];
-            opt.innerHTML = availableTgtLangs[i];
+            opt.innerHTML = ISO_639RevMappings[opt.value];
             tgtLangSelect.appendChild(opt);
         }
     }
+    $('.selectpicker').selectpicker('refresh');
 }
-function clearText(id) {
-    document.getElementById(id).innerHTML = "";
+function clearText(itemId) {
+    var item = document.querySelector('#' + itemId);
+    item.value = "";
+    item.dispatchEvent(autosizeEvt);
+    translatorHash = {};
 }
 function tokenizeInput(input, src, tgt, start, end, callback) {
     var xmlhttp = new XMLHttpRequest();
@@ -234,7 +245,6 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
             var match = myRegexp.exec(tokenizedInput);
             while (match != null) {
                 var sentence = match[2].replace(/\tunk/gm," ").replace(/(\d+\t)/gm,"");
-                sentences.push(sentence);
                 fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable);
                 match = myRegexp.exec(tokenizedInput);
             }
@@ -245,4 +255,8 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(params);
 }
+autosize(document.querySelector('#input'));
+autosize(document.querySelector('#output'));
+autosizeEvt.initEvent('autosize:update', true, false);
 window.onload = fillLangPairs;
+$('.selectpicker').selectpicker();

@@ -1,12 +1,13 @@
 var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
 
-var translatorHash = {};
 var srcLangs = [];
 var tgtLangs = [];
 var langPairs = {};
 var pairModuleCounts = {};
 var pairModuleNames = {};
 var autosizeEvt = document.createEvent('Event');
+var sentenceCount = 0;
+var translatedSentences = [];
 var ISO_639RevMappings = {
     "hin": "Hindi (हिन्दी)",
     "pan": "Punjabi (ਪੰਜਾਬੀ)",
@@ -84,16 +85,13 @@ function fillTable(sentence, result, src, tgt) {
     row.insertCell().innerHTML = tgt_txt;
     row = table.insertRow();
     row.insertCell().appendChild(ssfTable);
-    translatorHash[sentence] = tgt_txt;
+    translatedSentences.push(tgt_txt);
     fillOutput();
+    updateProgressBar();
 }
 function fillOutput() {
     var outputArea = document.getElementById("output");
-    var result = [];
-    Object.keys(translatorHash).forEach(function(sentence) {
-        result.push(translatorHash[sentence]);
-    })
-    outputArea.value = result.join('\n');
+    outputArea.value = translatedSentences.join('\n');
     outputArea.dispatchEvent(autosizeEvt);
 }
 function specialUpdate(tableid, rowid, textid, src, tgt) {
@@ -167,8 +165,10 @@ function updateModuleNames(srcLang, tgtLang) {
     xmlHttp.send(null);
 }
 function fetchTranslations() {
-    translatorHash = {};
+    translatedSentences = [];
+    updateProgressBar();
     clearText('output');
+    sentenceCount = 0;
     var srcLangSelect = document.getElementById('srcLangs');
     var tgtLangSelect = document.getElementById('tgtLangs');
     var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
@@ -229,7 +229,7 @@ function clearText(itemId) {
     var item = document.querySelector('#' + itemId);
     item.value = "";
     item.dispatchEvent(autosizeEvt);
-    translatorHash = {};
+    translatedSentences = [];
 }
 function tokenizeInput(input, src, tgt, start, end, callback) {
     var xmlhttp = new XMLHttpRequest();
@@ -245,6 +245,7 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
             var match = myRegexp.exec(tokenizedInput);
             while (match != null) {
                 var sentence = match[2].replace(/\tunk/gm," ").replace(/(\d+\t)/gm,"");
+                sentenceCount++;
                 fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable);
                 match = myRegexp.exec(tokenizedInput);
             }
@@ -255,8 +256,15 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(params);
 }
+function updateProgressBar() {
+    var progress = (translatedSentences.length / sentenceCount) * 100;
+    $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
+}
 autosize(document.querySelector('#input'));
 autosize(document.querySelector('#output'));
 autosizeEvt.initEvent('autosize:update', true, false);
 window.onload = fillLangPairs;
 $('.selectpicker').selectpicker();
+$('#pb').css({
+    'background-color': '#A9A9A9',
+});

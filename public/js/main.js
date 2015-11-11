@@ -281,6 +281,11 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
 function updateProgressBar() {
     var progress = (translatedSentences.length / sentenceCount) * 100;
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
+    if (progress == 100) {
+        $('.progress').removeClass('active');
+    } else {
+        $('.progress').addClass('active');
+    }
 }
 function setKeyboard(id) {
     var lang = ISO_639_3_to_2Mapping[$('#' + id).val()];

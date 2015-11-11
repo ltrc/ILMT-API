@@ -166,8 +166,7 @@ function updateModuleNames(srcLang, tgtLang) {
     xmlHttp.open("GET", '/' + srcLang + '/' + tgtLang + '/modules', true);
     xmlHttp.send(null);
 }
-function fetchTranslations()
-{
+function fetchTranslations() {
     translatorHash = {};
     clearText('output');
     var srcLangSelect = document.getElementById('srcLangs');

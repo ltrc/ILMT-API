@@ -40,6 +40,7 @@ function getUniqID() {
 function fillTable(sentence, result, src, tgt) {
     var ssfTable = document.createElement("table");
     ssfTable.setAttribute("style", "display:none");
+    ssfTable.setAttribute("class", "table table-hover");
     ssfTable.id = getUniqID();
     for (var k in result) {
         var ssfRow = ssfTable.insertRow();

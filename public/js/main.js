@@ -147,8 +147,7 @@ function fetchSentence(sentence, src, tgt, start, end, attempt, callback) {
         return;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             var result = JSON.parse(xmlhttp.responseText);
             if ("Error" in result) {
                 return;
@@ -170,8 +169,8 @@ function fetchSentence(sentence, src, tgt, start, end, attempt, callback) {
 function updateModuleCount(srcLang, tgtLang) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        pairModuleCounts[srcLang][tgtLang] = xmlHttp.responseText;
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            pairModuleCounts[srcLang][tgtLang] = xmlHttp.responseText;
     }
     xmlHttp.open("GET", '/' + srcLang + '/' + tgtLang, true);
     xmlHttp.send(null);
@@ -179,8 +178,8 @@ function updateModuleCount(srcLang, tgtLang) {
 function updateModuleNames(srcLang, tgtLang) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        pairModuleNames[srcLang][tgtLang] = JSON.parse(xmlHttp.responseText);
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            pairModuleNames[srcLang][tgtLang] = JSON.parse(xmlHttp.responseText);
     }
     xmlHttp.open("GET", '/' + srcLang + '/' + tgtLang + '/modules', true);
     xmlHttp.send(null);
@@ -205,8 +204,8 @@ function fetchTranslations() {
 function fillLangPairs() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        langPairs = JSON.parse(xmlHttp.responseText);
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            langPairs = JSON.parse(xmlHttp.responseText);
         for (var src in langPairs) {
             srcLangs.push(src);
             pairModuleCounts[src] = {};
@@ -256,8 +255,7 @@ function clearText(itemId) {
 function tokenizeInput(input, src, tgt, start, end, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             var result = JSON.parse(xmlhttp.responseText);
             if ("Error" in result) {
                 return;

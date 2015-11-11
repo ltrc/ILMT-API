@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+        <title>ILMT Pipelines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <style type="text/css">
+        textarea {
+            min-height: 150px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/autosize.min.js"></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
+</head>
 <body>
-<script src="js/main.js"></script>
-<div id="query">
-    <table>
-        <tr>
-            <td style="text-align:right">
-                <select id="srcLangs" onChange="updateTgtLangDropDown(this)">
+    <div class="container">
+        <div class="jumbotron text-center">
+                <h2>Indian Language Machine Translation System</h2>
+                <h2>भारतीय भाषा अनुवाद प्रणाली</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <select class="selectpicker form-control" id="srcLangs" data-style="btn-default" onChange="updateTgtLangDropDown(this)">
                 </select>
-            </td>
-            <td style="text-align:left">
-                <select id="tgtLangs">
+            </div>
+            <div class="col-lg-3">
+                <button id="src-lang-txt-btn" class="btn btn-block" onclick="erasePreviousTranslations()">Clear</button>
+            </div>
+            <div class="col-lg-3">
+                <select class="selectpicker form-control" id="tgtLangs" data-style="btn-default">
                 </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <textarea rows="10" cols="100" name="sentences" id="input">
-                </textarea>
-            </td>
-            <td>
-                <textarea readonly rows="10" cols="100" id="output">
-                </textarea>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align:center">
-                <button onclick="fetchTranslations()">Submit</button>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:left">
-                <button onclick="eraseText('input')">Clear</button>
-            </td>
-            <td style="text-align:right">
-                <button onclick="clearText('output')">Clear</button>
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="output" class="results">
-    <table style="width:100%" id="translate" class="comparison">
-    </table>
-</div>
-</body>
-</html>
+            </div>
+            <div class="col-lg-3">
+                <button class="btn btn-block" onclick="fetchTranslations()">Translate</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <textarea class="form-control" name="sentences" id="input" placeholder="Enter Source Language Text"></textarea>
+            </div>
+            <div class="col-lg-6">
+                <textarea class="form-control" readonly id="output" placeholder="Target Language Text Will Appear Here"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-hover" id="translate">
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-bottom">
+        <div class="container">
+            <p class="text-center">
+            © 2015 - Nehal J Wani, Language Technology Research Center, International Institute of Information Technology, Hyderabad
+            </p>
+        </div>
+    </div>
+
+    </body>
+    </html>

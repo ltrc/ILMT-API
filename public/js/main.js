@@ -256,8 +256,9 @@ function fillLangPairs() {
     xmlHttp.open("GET", '/langpairs', true);
     xmlHttp.send(null);
 }
-function updateTgtLangDropDown(item) {
+function updateTgtLangDropDown() {
     // Safety Check
+    var item = document.getElementById('srcLangs');
     if (item.selectedIndex >= 0) {
         var srcLang = item.options[item.selectedIndex].value;
         var availableTgtLangs = langPairs[srcLang];
@@ -372,6 +373,7 @@ $(document).ready(function() {
             var highFreqLang = sortable[0][0];
             if ($.inArray(highFreqLang, srcLangs) > -1) {
                 $('#srcLangs.selectpicker').selectpicker('val', highFreqLang);
+                updateTgtLangDropDown();
             } else if (highFreqLang != 'unk'){
                 console.log('The input language ' + highFreqLang + ' is not supported yet!');
             } else {

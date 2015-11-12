@@ -209,9 +209,10 @@ function fetchTranslations() {
     var srcLang = srcLangSelect.options[srcLangSelect.selectedIndex].value;
     var tgtLang = tgtLangSelect.options[tgtLangSelect.selectedIndex].value;
     var paragraphUnits = document.getElementById("input").value.split('\n');
+    var inputSeq = 0;
     for (i = 0; i < paragraphUnits.length; i++) {
         if (paragraphUnits[i].trim().length > 0) {
-            tokenizeInput(paragraphUnits[i].trim(), srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang]);
+            tokenizeInput(paragraphUnits[i].trim(), srcLang, tgtLang, 1, pairModuleCounts[srcLang][tgtLang], ++inputSeq);
         }
     }
 }
@@ -266,7 +267,7 @@ function clearText(itemId) {
     item.dispatchEvent(autosizeEvt);
     translatedSentences = {};
 }
-function tokenizeInput(input, src, tgt, start, end, callback) {
+function tokenizeInput(input, src, tgt, start, end, inputSeq) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -280,7 +281,8 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
             while (match != null) {
                 var sentence = match[2].replace(/\tunk/gm," ").replace(/(\d+\t)/gm,"");
                 sentenceCount++;
-                fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable, sentenceCount);
+                fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt],
+                              0, fillTable, (inputSeq * 100000) + sentenceCount);
                 match = myRegexp.exec(tokenizedInput);
             }
         }

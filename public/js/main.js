@@ -104,7 +104,8 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     ssfInput.setAttribute("onClick", "javascript: toggleImage(this); toggleDisplay('" + ssfTable.id + "');");
     cell = row.insertCell();
     cell.appendChild(ssfInput);
-    cell.className = "col-lg-1";
+    cell.className = "col-lg-1 translator-debug";
+    cell.setAttribute("style", "display: none");
     var tgtArea = document.createElement('textArea');
     tgtArea.className = "form-control translator-output";
     tgtArea.setAttribute('onfocus', "setKeyboard('tgtLangs')");
@@ -214,6 +215,7 @@ function fetchTranslations() {
     updateProgressBar();
     clearText('output');
     $('#aftermath').addClass('hidden');
+    $('#toggle-debug').bootstrapToggle('off');
     sentenceCount = 0;
     var srcLangSelect = document.getElementById('srcLangs');
     var tgtLangSelect = document.getElementById('tgtLangs');
@@ -380,5 +382,10 @@ $(document).ready(function() {
                 console.log('The input language is unknown!');
             }
         }, 100);
+    });
+    $('#toggle-debug').change(function() {
+        $('.translator-debug').each(function(){
+            $(this).toggle();
+        });
     });
 });

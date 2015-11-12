@@ -18,6 +18,15 @@ var ISO_639_3_to_2Mapping = {
     "pan": "pa",
     "urd": "ur"
 }
+/* Unicode Ranges for a given language
+ * Info Gathered from: http://jrgraphix.net/research/unicode_blocks.php
+ */
+var unicodeRanges = {
+    "hin": [2304, 2431],
+    "pan": [2560, 2687],
+    "urd": [1536, 1791],
+    "tel": [3072, 3199]
+}
 function toggleDisplay(elementID) {
     (function(style) {
         style.display = style.display === 'none' ? '' : 'none';
@@ -328,6 +337,14 @@ function downloadOutput() {
         pom.click();
     }
 }
+function unicode2Lang(character) {
+    for (lang in unicodeRanges) {
+        if (character >= unicodeRanges[lang][0]
+            && character <= unicodeRanges[lang][1])
+            return lang;
+    }
+    return "unk";
+}
 $(document).ready(function() {
     fillLangPairs();
     $('.selectpicker').selectpicker();
@@ -338,4 +355,28 @@ $(document).ready(function() {
     autosize(document.querySelector('#output'));
     autosizeEvt.initEvent('autosize:update', true, false);
     $('#input').ime();
+    $("#input").bind('paste', function(e) {
+        var elem = $(this);
+        setTimeout(function() {
+            var text = elem.val();
+            var freq = {}
+            for (i = 0; i < text.length; i++) {
+                var lang = unicode2Lang(text.charCodeAt(i));
+                freq[lang] ? freq[lang]++ : freq[lang] = 1;
+            }
+            var sortable = [];
+            for (var lang in freq) {
+                sortable.push([lang, freq[lang]]);
+            }
+            sortable.sort(function(a, b) {return b[1] - a[1]});
+            var highFreqLang = sortable[0][0];
+            if ($.inArray(highFreqLang, srcLangs) > -1) {
+                $('#srcLangs.selectpicker').selectpicker('val', highFreqLang);
+            } else if (highFreqLang != 'unk'){
+                console.log('The input language ' + highFreqLang + ' is not supported yet!');
+            } else {
+                console.log('The input language is unknown!');
+            }
+        }, 100);
+    });
 });

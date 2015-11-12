@@ -42,6 +42,7 @@ function erasePreviousTranslations() {
     eraseTranslateTable();
     clearText('input');
     clearText('output');
+    $('#aftermath').addClass('hidden');
 }
 function getUniqID() {
     return 't' + Math.random().toString(36).substring(7);
@@ -96,7 +97,7 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     cell.appendChild(ssfInput);
     cell.className = "col-lg-1";
     var tgtArea = document.createElement('textArea');
-    tgtArea.className = "form-control";
+    tgtArea.className = "form-control translator-output";
     tgtArea.setAttribute('onfocus', "setKeyboard('tgtLangs')");
     tgtArea.innerHTML = tgt_txt;
     $(tgtArea).ime();
@@ -203,6 +204,7 @@ function fetchTranslations() {
     eraseTranslateTable();
     updateProgressBar();
     clearText('output');
+    $('#aftermath').addClass('hidden');
     sentenceCount = 0;
     var srcLangSelect = document.getElementById('srcLangs');
     var tgtLangSelect = document.getElementById('tgtLangs');
@@ -297,6 +299,7 @@ function updateProgressBar() {
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
     if (progress == 100) {
         $('.progress').removeClass('active');
+        $('#aftermath').removeClass('hidden');
     } else {
         $('.progress').addClass('active');
     }
@@ -305,6 +308,25 @@ function setKeyboard(id) {
     var lang = ISO_639_3_to_2Mapping[$('#' + id).val()];
     $.ime.preferences.setLanguage(lang);
     $.ime.preferences.setIM($.ime.languages[lang].inputmethods[0]);
+}
+function downloadOutput() {
+    var outputCells = $(".translator-output");
+    var text = "";
+    for (i = 0; i < outputCells.length; i++) {
+        text += outputCells[i].value + " ";
+    }
+    var filename = "Output_" + new Date().getTime() + '.txt';
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
 }
 $(document).ready(function() {
     fillLangPairs();

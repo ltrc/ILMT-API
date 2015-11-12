@@ -82,7 +82,7 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     }
     var table = document.getElementById("translate");
     var row = table.insertRow();
-    row.className = "ssf-" + seqNumber + " translator-rows";
+    row.className = "ssf-" + seqNumber + "0 translator-rows";
     var cell = row.insertCell();
     cell.innerHTML = sentence;
     cell.className = "col-lg-5";
@@ -106,7 +106,7 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     cell.appendChild(tgtArea);
     cell.className = "col-lg-5";
     row = table.insertRow();
-    row.className = "ssf-" + seqNumber + " translator-rows";
+    row.className = "ssf-" + seqNumber + "1 translator-rows";
     cell = row.insertCell();
     cell.setAttribute("colspan", "3");
     cell.appendChild(ssfTable);
@@ -123,8 +123,8 @@ function fillOutput() {
     var result = [];
     var keys = Object.keys(translatedSentences);
     keys.sort();
-    for (i = 1; i <= keys.length; i++) {
-        result.push(translatedSentences[i]);
+    for (i = 0; i < keys.length; i++) {
+        result.push(translatedSentences[keys[i]]);
     }
     outputArea.value = result.join('\n');
     outputArea.dispatchEvent(autosizeEvt);

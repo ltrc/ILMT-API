@@ -7,7 +7,7 @@ var pairModuleCounts = {};
 var pairModuleNames = {};
 var autosizeEvt = document.createEvent('Event');
 var sentenceCount = 0;
-var translatedSentences = [];
+var translatedSentences = {};
 var ISO_639RevMappings = {
     "hin": "Hindi (हिन्दी)",
     "pan": "Punjabi (ਪੰਜਾਬੀ)",
@@ -46,7 +46,7 @@ function erasePreviousTranslations() {
 function getUniqID() {
     return 't' + Math.random().toString(36).substring(7);
 }
-function fillTable(sentence, result, src, tgt) {
+function fillTable(sentence, result, src, tgt, seqNumber) {
     var ssfTable = document.createElement("table");
     ssfTable.setAttribute("style", "display:none");
     ssfTable.setAttribute("class", "table table-hover");
@@ -82,6 +82,7 @@ function fillTable(sentence, result, src, tgt) {
     }
     var table = document.getElementById("translate");
     var row = table.insertRow();
+    row.className = "ssf-" + seqNumber + " translator-rows";
     var cell = row.insertCell();
     cell.innerHTML = sentence;
     cell.className = "col-lg-5";
@@ -105,14 +106,27 @@ function fillTable(sentence, result, src, tgt) {
     cell.appendChild(tgtArea);
     cell.className = "col-lg-5";
     row = table.insertRow();
-    row.insertCell().appendChild(ssfTable);
-    translatedSentences.push(tgt_txt);
+    row.className = "ssf-" + seqNumber + " translator-rows";
+    cell = row.insertCell();
+    cell.setAttribute("colspan", "3");
+    cell.appendChild(ssfTable);
+    translatedSentences[seqNumber] = tgt_txt;
     fillOutput();
     updateProgressBar();
+    $("#translate").append($("tr.translator-rows").get().sort(function(a, b) {
+        return parseInt($(a).attr("class").match(/\d+/))
+            - parseInt($(b).attr("class").match(/\d+/));
+    }));
 }
 function fillOutput() {
     var outputArea = document.getElementById("output");
-    outputArea.value = translatedSentences.join('\n');
+    var result = [];
+    var keys = Object.keys(translatedSentences);
+    keys.sort();
+    for (i = 1; i <= keys.length; i++) {
+        result.push(translatedSentences[i]);
+    }
+    outputArea.value = result.join('\n');
     outputArea.dispatchEvent(autosizeEvt);
 }
 function specialUpdate(tableid, rowid, textid, src, tgt) {
@@ -140,9 +154,9 @@ function specialUpdate(tableid, rowid, textid, src, tgt) {
             currRow.insertCell().appendChild(ssfInput);
         }
     }
-    fetchSentence(input, src, tgt, start + 1, pairModuleCounts[src][tgt], 0, callback);
+    fetchSentence(input, src, tgt, start + 1, pairModuleCounts[src][tgt], 0, callback, -1);
 }
-function fetchSentence(sentence, src, tgt, start, end, attempt, callback) {
+function fetchSentence(sentence, src, tgt, start, end, attempt, callback, seqNumber) {
     if (attempt > 5)
         return;
     var xmlhttp = new XMLHttpRequest();
@@ -154,11 +168,11 @@ function fetchSentence(sentence, src, tgt, start, end, attempt, callback) {
             }
             for (var k in result) {
                 if (result[k].length <= 30) {
-                    fetchSentence(sentence, src, tgt, start, end, attempt + 1, callback);
+                    fetchSentence(sentence, src, tgt, start, end, attempt + 1, callback, seqNumber);
                     return;
                 }
             }
-            callback(sentence, result, src, tgt);
+            callback(sentence, result, src, tgt, seqNumber);
         }
     }
     var params = "input=" + sentence;
@@ -185,7 +199,7 @@ function updateModuleNames(srcLang, tgtLang) {
     xmlHttp.send(null);
 }
 function fetchTranslations() {
-    translatedSentences = [];
+    translatedSentences = {};
     eraseTranslateTable();
     updateProgressBar();
     clearText('output');
@@ -250,7 +264,7 @@ function clearText(itemId) {
     var item = document.querySelector('#' + itemId);
     item.value = "";
     item.dispatchEvent(autosizeEvt);
-    translatedSentences = [];
+    translatedSentences = {};
 }
 function tokenizeInput(input, src, tgt, start, end, callback) {
     var xmlhttp = new XMLHttpRequest();
@@ -266,7 +280,7 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
             while (match != null) {
                 var sentence = match[2].replace(/\tunk/gm," ").replace(/(\d+\t)/gm,"");
                 sentenceCount++;
-                fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable);
+                fetchSentence(sentence, src, tgt, 1, pairModuleCounts[src][tgt], 0, fillTable, sentenceCount);
                 match = myRegexp.exec(tokenizedInput);
             }
         }
@@ -277,7 +291,7 @@ function tokenizeInput(input, src, tgt, start, end, callback) {
     xmlhttp.send(params);
 }
 function updateProgressBar() {
-    var progress = (translatedSentences.length / sentenceCount) * 100;
+    var progress = (Object.keys(translatedSentences).length / sentenceCount) * 100;
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
     if (progress == 100) {
         $('.progress').removeClass('active');

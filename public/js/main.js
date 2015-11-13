@@ -107,7 +107,7 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     cell.className = "col-lg-1 translator-debug";
     cell.setAttribute("style", "display: none");
     var tgtArea = document.createElement('textArea');
-    tgtArea.className = "form-control translator-output";
+    tgtArea.className = "form-control translator-output " + seqNumber;
     tgtArea.setAttribute('onfocus', "setKeyboard('tgtLangs')");
     tgtArea.innerHTML = tgt_txt;
     $(tgtArea).ime();
@@ -387,5 +387,12 @@ $(document).ready(function() {
         $('.translator-debug').each(function(){
             $(this).toggle();
         });
+    });
+    $('#translate').on('keydown', '.translator-output', function() {
+        var sentenceID = this.className.match(/\d+/);
+        if (sentenceID) {
+            translatedSentences[sentenceID] = this.value;
+            fillOutput();
+        }
     });
 });

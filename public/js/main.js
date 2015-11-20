@@ -83,19 +83,35 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     }
     var moduleCount = pairModuleCounts[src][tgt];
     var worgGenOut = result[pairModuleNames[src][tgt][moduleCount - 1] + '-' + moduleCount].split('\n');
-    var tgt_txt = "";
+    var tgtWords = "";
+    var nameTags = {};
     for (var i in worgGenOut) {
         var ssf = worgGenOut[i].split("\t")
         if (ssf[0].match(/\d+.\d+/) && ssf[1] != '((') {
-            tgt_txt += ssf[1] + " ";
+            var nameTag = worgGenOut[i].match(/name='([^']*)'/);
+            var classStr = "target-word";
+            if (nameTag){
+                if (!nameTags[ssf[1]]) {
+                    nameTags[ssf[1]] = 0;
+                }
+                classStr += ' ' + nameTags[ssf[1]] + '_' + nameTag[1];
+                nameTags[ssf[1]]++;
+            }
+            tgtWords += "<span class='" + classStr + "'>" + ssf[1] + "</span>\n";
         }
     }
+
     var table = document.getElementById("translate");
     var row = table.insertRow();
-    row.className = "ssf-" + seqNumber + "0 translator-rows";
+    row.className = "translator-rows";
+    row.setAttribute("data-rowid", seqNumber + '0');
     var cell = row.insertCell();
-    cell.innerHTML = sentence;
-    cell.className = "col-lg-5";
+    var srcWords = sentence.split(' ');
+    for (var i = 0; i < srcWords.length; i++) {
+        cell.innerHTML += "<span>" + srcWords[i] + "</span>\n";
+    }
+    cell.className = "col-lg-5 translator-input";
+    cell.setAttribute("data-sentenceid", seqNumber);
     var ssfInput = document.createElement("input");
     ssfInput.setAttribute("src", "/images/down.png");
     ssfInput.setAttribute("type", "image");
@@ -106,28 +122,29 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     cell.appendChild(ssfInput);
     cell.className = "col-lg-1 translator-debug";
     cell.setAttribute("style", "display: none");
-    var tgtArea = document.createElement('textArea');
-    tgtArea.className = "form-control translator-output " + seqNumber;
+    var tgtArea = document.createElement('div');
+    tgtArea.className = "form-control translator-output";
+    tgtArea.setAttribute("data-sentenceid", seqNumber);
+    tgtArea.setAttribute('contenteditable', 'true');
     tgtArea.setAttribute('onfocus', "setKeyboard('tgtLangs')");
-    tgtArea.innerHTML = tgt_txt;
+    tgtArea.innerHTML = tgtWords;
     $(tgtArea).ime();
-    autosize(tgtArea);
-    tgtArea.dispatchEvent(autosizeEvt);
     cell = row.insertCell();
     cell.appendChild(tgtArea);
     cell.className = "col-lg-5";
     row = table.insertRow();
-    row.className = "ssf-" + seqNumber + "1 translator-rows";
+    row.className = "translator-rows";
+    row.setAttribute("data-rowid", seqNumber + '1');
     cell = row.insertCell();
     cell.setAttribute("colspan", "3");
     cell.appendChild(ssfTable);
-    translatedSentences[seqNumber] = tgt_txt;
+    $("#translate").append($("tr.translator-rows").get().sort(function(a, b) {
+        return parseInt($(a).attr("data-rowid")) - parseInt($(b).attr("data-rowid"));
+    }));
+
+    translatedSentences[seqNumber] = tgtArea.textContent.replace(/(\r\n|\n|\r)/gm," ");
     fillOutput();
     updateProgressBar();
-    $("#translate").append($("tr.translator-rows").get().sort(function(a, b) {
-        return parseInt($(a).attr("class").match(/\d+/))
-            - parseInt($(b).attr("class").match(/\d+/));
-    }));
 }
 function fillOutput() {
     var outputArea = document.getElementById("output");
@@ -388,11 +405,23 @@ $(document).ready(function() {
             $(this).toggle();
         });
     });
-    $('#translate').on('keydown', '.translator-output', function() {
-        var sentenceID = this.className.match(/\d+/);
+    $('#translate').on('keydown keyup', '.translator-output', function() {
+        var sentenceID = this.getAttribute('data-sentenceid');
         if (sentenceID) {
-            translatedSentences[sentenceID] = this.value;
+            translatedSentences[sentenceID] = this.textContent.replace(/(\r\n|\n|\r)/gm," ");
             fillOutput();
+        }
+    });
+    $('#translate').on('mouseenter mouseleave', '.target-word', function (evt) {
+        var sentenceID = this.parentNode.getAttribute('data-sentenceid');
+        if (this.classList.length > 1) {
+            var srcWordInfo = this.classList[1].split('_');
+            var spanKids = $('.translator-input').filter('[data-sentenceid="'+ sentenceID +'"]').children();
+            var reqOccurence = srcWordInfo[0];
+            var srcWord = srcWordInfo[1];
+            spanKids.filter(function() {
+                return $(this).text() == srcWord;
+            }).eq(reqOccurence).toggleClass('srcword-highlight', evt.type == 'mouseenter');
         }
     });
 });

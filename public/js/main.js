@@ -339,11 +339,7 @@ function setKeyboard(id) {
     $.ime.preferences.setIM($.ime.languages[lang].inputmethods[0]);
 }
 function downloadOutput() {
-    var outputCells = $(".translator-output");
-    var text = "";
-    for (i = 0; i < outputCells.length; i++) {
-        text += outputCells[i].value + " ";
-    }
+    var text = $('#output').val();
     var filename = "Output_" + new Date().getTime() + '.txt';
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

@@ -16,3 +16,6 @@
 [submodule "modules/ILMT-HIN-PAN-Prune"]
 	path = modules/ILMT-HIN-PAN-Prune
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Prune.git
+[submodule "modules/ILMT-HIN-PAN-GuessMorph"]
+	path = modules/ILMT-HIN-PAN-GuessMorph
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-GuessMorph.git

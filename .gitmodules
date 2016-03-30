@@ -1,0 +1,9 @@
+[submodule "modules/ILMT-HIN-PAN-Tokenizer"]
+	path = modules/ILMT-HIN-PAN-Tokenizer
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Tokenizer.git
+[submodule "modules/ILMT-HIN-PAN-UTF2WX"]
+	path = modules/ILMT-HIN-PAN-UTF2WX
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-UTF2WX.git
+[submodule "modules/ILMT-HIN-PAN-Morph"]
+	path = modules/ILMT-HIN-PAN-Morph
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Morph.git

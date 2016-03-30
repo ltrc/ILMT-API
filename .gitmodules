@@ -13,3 +13,6 @@
 [submodule "modules/ILMT-HIN-PAN-Chunker"]
 	path = modules/ILMT-HIN-PAN-Chunker
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Chunker.git
+[submodule "modules/ILMT-HIN-PAN-Prune"]
+	path = modules/ILMT-HIN-PAN-Prune
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Prune.git

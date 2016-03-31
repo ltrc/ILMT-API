@@ -34,3 +34,6 @@
 [submodule "modules/ILMT-HIN-PAN-Root2Infinity"]
 	path = modules/ILMT-HIN-PAN-Root2Infinity
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Root2Infinity.git
+[submodule "modules/ILMT-HIN-PAN-TransferGrammar"]
+	path = modules/ILMT-HIN-PAN-TransferGrammar
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-TransferGrammar.git

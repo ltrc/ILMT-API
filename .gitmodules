@@ -28,3 +28,6 @@
 [submodule "modules/ILMT-HIN-PAN-VibhaktiComputation"]
 	path = modules/ILMT-HIN-PAN-VibhaktiComputation
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-VibhaktiComputation.git
+[submodule "modules/ILMT-HIN-PAN-SimpleParser"]
+	path = modules/ILMT-HIN-PAN-SimpleParser
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SimpleParser.git

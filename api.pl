@@ -11,6 +11,8 @@ use ILMT::HIN::PAN;
 any '/:src/:tgt/translate' => sub {
     my $c = shift;
     my %args = %{$c->req->params->to_hash};
+    $args{'src_lang'} = $c->param('src');
+    $args{'tgt_lang'} = $c->param('tgt');
     my $translator = get_translator(uc($c->param('src')), uc($c->param('tgt')));
     my $final_result = $translator->translate(%args);
     if (exists $args{"pretty"}) {

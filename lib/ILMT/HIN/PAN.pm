@@ -15,7 +15,8 @@ my @seq = (
     "PickOneMorph",
     "HeadComputation",
     "VibhaktiComputation",
-    "SimpleParser"
+    "SimpleParser",
+    "Root2Infinity"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("HIN", "PAN", \@seq);

@@ -31,3 +31,6 @@
 [submodule "modules/ILMT-HIN-PAN-SimpleParser"]
 	path = modules/ILMT-HIN-PAN-SimpleParser
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SimpleParser.git
+[submodule "modules/ILMT-HIN-PAN-Root2Infinity"]
+	path = modules/ILMT-HIN-PAN-Root2Infinity
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Root2Infinity.git

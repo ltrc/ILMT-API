@@ -19,3 +19,6 @@
 [submodule "modules/ILMT-HIN-PAN-GuessMorph"]
 	path = modules/ILMT-HIN-PAN-GuessMorph
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-GuessMorph.git
+[submodule "modules/ILMT-HIN-PAN-PickOneMorph"]
+	path = modules/ILMT-HIN-PAN-PickOneMorph
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-PickOneMorph.git

@@ -22,3 +22,6 @@
 [submodule "modules/ILMT-HIN-PAN-PickOneMorph"]
 	path = modules/ILMT-HIN-PAN-PickOneMorph
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-PickOneMorph.git
+[submodule "modules/ILMT-HIN-PAN-HeadComputation"]
+	path = modules/ILMT-HIN-PAN-HeadComputation
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-HeadComputation.git

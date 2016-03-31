@@ -5,6 +5,7 @@ use Dir::Self;
 use Data::Dumper;
 use Exporter qw(import);
 use Module::Pluggable::Object;
+use Module::Runtime qw(use_module);
 
 our @EXPORT_OK = qw(get_translator);
 
@@ -17,9 +18,11 @@ sub new_translator {
         tgt => shift,
     };
 
-    @{$self->{plugins}} = Module::Pluggable::Object->new(
-        search_path => "ILMT::$self->{src}::$self->{tgt}",
-        require => 1)->plugins();
+    my $search_path = "ILMT::$self->{src}::$self->{tgt}";
+
+    @{$self->{plugins}} = map use_module($_),
+                            grep /^${search_path}::[^:]+$/,
+                              Module::Pluggable::Object->new(search_path => $search_path)->plugins;
 
     $self->{seq} = shift;
 

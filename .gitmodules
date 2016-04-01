@@ -37,3 +37,6 @@
 [submodule "modules/ILMT-HIN-PAN-TransferGrammar"]
 	path = modules/ILMT-HIN-PAN-TransferGrammar
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-TransferGrammar.git
+[submodule "modules/ILMT-HIN-PAN-WX2UTF"]
+	path = modules/ILMT-HIN-PAN-WX2UTF
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-WX2UTF.git

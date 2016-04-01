@@ -17,7 +17,8 @@ my @seq = (
     "VibhaktiComputation",
     "SimpleParser",
     "Root2Infinity",
-    "TransferGrammar"
+    "TransferGrammar",
+    "WX2UTF"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("HIN", "PAN", \@seq);

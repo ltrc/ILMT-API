@@ -58,3 +58,6 @@
 [submodule "modules/ILMT-HIN-PAN-IntraChunk"]
 	path = modules/ILMT-HIN-PAN-IntraChunk
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-IntraChunk.git
+[submodule "modules/ILMT-HIN-PAN-AgreementDistribution"]
+	path = modules/ILMT-HIN-PAN-AgreementDistribution
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-AgreementDistribution.git

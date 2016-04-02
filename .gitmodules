@@ -61,3 +61,6 @@
 [submodule "modules/ILMT-HIN-PAN-AgreementDistribution"]
 	path = modules/ILMT-HIN-PAN-AgreementDistribution
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-AgreementDistribution.git
+[submodule "modules/ILMT-HIN-PAN-DefaultFeatures"]
+	path = modules/ILMT-HIN-PAN-DefaultFeatures
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-DefaultFeatures.git

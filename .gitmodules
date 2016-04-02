@@ -40,3 +40,6 @@
 [submodule "modules/ILMT-HIN-PAN-WX2UTF"]
 	path = modules/ILMT-HIN-PAN-WX2UTF
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-WX2UTF.git
+[submodule "modules/ILMT-HIN-PAN-LexicalTransfer"]
+	path = modules/ILMT-HIN-PAN-LexicalTransfer
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-LexicalTransfer.git

@@ -46,3 +46,6 @@
 [submodule "modules/ILMT-HIN-PAN-Transliteration"]
 	path = modules/ILMT-HIN-PAN-Transliteration
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Transliteration.git
+[submodule "modules/ILMT-HIN-PAN-AgreementFeature"]
+	path = modules/ILMT-HIN-PAN-AgreementFeature
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-AgreementFeature.git

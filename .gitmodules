@@ -52,3 +52,6 @@
 [submodule "modules/ILMT-HIN-PAN-VibhaktiSplitter"]
 	path = modules/ILMT-HIN-PAN-VibhaktiSplitter
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-VibhaktiSplitter.git
+[submodule "modules/ILMT-HIN-PAN-InterChunk"]
+	path = modules/ILMT-HIN-PAN-InterChunk
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-InterChunk.git

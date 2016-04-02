@@ -43,3 +43,6 @@
 [submodule "modules/ILMT-HIN-PAN-LexicalTransfer"]
 	path = modules/ILMT-HIN-PAN-LexicalTransfer
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-LexicalTransfer.git
+[submodule "modules/ILMT-HIN-PAN-Transliteration"]
+	path = modules/ILMT-HIN-PAN-Transliteration
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-Transliteration.git

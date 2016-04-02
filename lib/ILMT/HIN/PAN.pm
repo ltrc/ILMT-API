@@ -26,7 +26,8 @@ my @seq = (
     "InterChunk",
     "IntraChunk",
     "AgreementDistribution",
-    "DefaultFeatures"
+    "DefaultFeatures",
+    "WordGenerator"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("HIN", "PAN", \@seq);

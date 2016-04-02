@@ -64,3 +64,6 @@
 [submodule "modules/ILMT-HIN-PAN-DefaultFeatures"]
 	path = modules/ILMT-HIN-PAN-DefaultFeatures
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-DefaultFeatures.git
+[submodule "modules/ILMT-HIN-PAN-WordGenerator"]
+	path = modules/ILMT-HIN-PAN-WordGenerator
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-WordGenerator.git

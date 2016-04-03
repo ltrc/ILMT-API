@@ -67,3 +67,6 @@
 [submodule "modules/ILMT-HIN-PAN-WordGenerator"]
 	path = modules/ILMT-HIN-PAN-WordGenerator
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-WordGenerator.git
+[submodule "modules/ILMT-HIN-PAN-SSFAPI"]
+	path = modules/ILMT-HIN-PAN-SSFAPI
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SSFAPI.git

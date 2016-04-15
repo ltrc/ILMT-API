@@ -66,6 +66,13 @@ any '/:src/:tgt/' => sub {
     $c->render(text => scalar @{$translator->{seq}});
 };
 
+any '/:src/:tgt/modules' => sub {
+    my $c = shift;
+    my $translator = get_translator(uc($c->param('src')), uc($c->param('tgt')));
+    my @modules = map { lc($_) } @{$translator->{seq}};
+    $c->render(json => \@modules);
+};
+
 app->start;
 __DATA__
 

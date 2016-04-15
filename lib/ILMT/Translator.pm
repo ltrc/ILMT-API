@@ -46,7 +46,7 @@ sub translate {
     my @dispatch_seq = @{$self->{seq}};
     foreach my $index (0 .. $#dispatch_seq) {
         my $module = $dispatch_seq[$index ++];
-        my $identifier = "${module}-$index";
+        my $identifier = lc("${module}-$index");
         my $package = "ILMT::$self->{src}::$self->{tgt}::$module";
         $final_result{$identifier} = $package->can('process')->(%args);
         $args{'data'} = $final_result{$identifier};

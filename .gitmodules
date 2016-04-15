@@ -22,9 +22,6 @@
 [submodule "modules/ILMT-HIN-PAN-PickOneMorph"]
 	path = modules/ILMT-HIN-PAN-PickOneMorph
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-PickOneMorph.git
-[submodule "modules/ILMT-HIN-PAN-HeadComputation"]
-	path = modules/ILMT-HIN-PAN-HeadComputation
-	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-HeadComputation.git
 [submodule "modules/ILMT-HIN-PAN-SimpleParser"]
 	path = modules/ILMT-HIN-PAN-SimpleParser
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SimpleParser.git
@@ -70,3 +67,6 @@
 [submodule "modules/ILMT-HIN-PAN-ComputeVibhakti"]
 	path = modules/ILMT-HIN-PAN-ComputeVibhakti
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-ComputeVibhakti.git
+[submodule "modules/ILMT-HIN-PAN-ComputeHead"]
+	path = modules/ILMT-HIN-PAN-ComputeHead
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-ComputeHead.git

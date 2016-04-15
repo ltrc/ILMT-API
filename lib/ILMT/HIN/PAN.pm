@@ -13,7 +13,7 @@ my @seq = (
     "Prune",
     "GuessMorph",
     "PickOneMorph",
-    "HeadComputation",
+    "ComputeHead",
     "ComputeVibhakti",
     "SimpleParser",
     "Root2Infinity",

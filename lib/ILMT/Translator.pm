@@ -7,7 +7,7 @@ use Exporter qw(import);
 use Module::Pluggable::Object;
 use Module::Runtime qw(use_module);
 
-our @EXPORT_OK = qw(get_translator);
+our @EXPORT_OK = qw(get_translator get_langpairs);
 
 my %translator_table;
 
@@ -37,6 +37,11 @@ sub new_translator {
 sub get_translator {
     my ($src, $tgt) = @_;
     return $translator_table{$src}{$tgt};
+}
+
+sub get_langpairs {
+    return map ((lc($_) =>
+            map (lc($_), keys %{$translator_table{$_}})), keys %translator_table);
 }
 
 sub translate {

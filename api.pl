@@ -5,7 +5,7 @@ use warnings;
 use Data::Dumper;
 use Mojolicious::Lite;
 use lib __DIR__ . "/lib";
-use ILMT::Translator qw(get_translator);
+use ILMT::Translator qw(get_translator get_langpairs);
 use ILMT::HIN::PAN;
 
 plugin qw(Mojolicious::Plugin::ForkCall);
@@ -71,6 +71,12 @@ any '/:src/:tgt/modules' => sub {
     my $translator = get_translator(uc($c->param('src')), uc($c->param('tgt')));
     my @modules = map { lc($_) } @{$translator->{seq}};
     $c->render(json => \@modules);
+};
+
+any '/langpairs' => sub {
+    my $c = shift;
+    my %langpairs = get_langpairs();
+    $c->render(json => \%langpairs);
 };
 
 app->start;

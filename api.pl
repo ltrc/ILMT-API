@@ -60,6 +60,12 @@ any '/:src/:tgt/:start/:end' => sub {
     );
 };
 
+any '/:src/:tgt/' => sub {
+    my $c = shift;
+    my $translator = get_translator(uc($c->param('src')), uc($c->param('tgt')));
+    $c->render(text => scalar @{$translator->{seq}});
+};
+
 app->start;
 __DATA__
 

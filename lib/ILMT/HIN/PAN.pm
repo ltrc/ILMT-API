@@ -14,7 +14,7 @@ my @seq = (
     "GuessMorph",
     "PickOneMorph",
     "HeadComputation",
-    "VibhaktiComputation",
+    "ComputeVibhakti",
     "SimpleParser",
     "Root2Infinity",
     "TransferGrammar",

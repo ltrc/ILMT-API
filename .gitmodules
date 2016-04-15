@@ -25,9 +25,6 @@
 [submodule "modules/ILMT-HIN-PAN-HeadComputation"]
 	path = modules/ILMT-HIN-PAN-HeadComputation
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-HeadComputation.git
-[submodule "modules/ILMT-HIN-PAN-VibhaktiComputation"]
-	path = modules/ILMT-HIN-PAN-VibhaktiComputation
-	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-VibhaktiComputation.git
 [submodule "modules/ILMT-HIN-PAN-SimpleParser"]
 	path = modules/ILMT-HIN-PAN-SimpleParser
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SimpleParser.git
@@ -70,3 +67,6 @@
 [submodule "modules/ILMT-HIN-PAN-SSFAPI"]
 	path = modules/ILMT-HIN-PAN-SSFAPI
 	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-SSFAPI.git
+[submodule "modules/ILMT-HIN-PAN-ComputeVibhakti"]
+	path = modules/ILMT-HIN-PAN-ComputeVibhakti
+	url = https://gitlab.com/ilmt/ILMT-HIN-PAN-ComputeVibhakti.git

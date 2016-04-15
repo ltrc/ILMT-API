@@ -54,4 +54,19 @@ sub translate {
     return \%final_result;
 }
 
+sub partial_p {
+    my ($self, $start, $end, %args) = @_;
+    my $result = "";
+    my %final_result;
+    my @dispatch_seq = @{$self->{seq}};
+    foreach my $index ($start .. $end) {
+        my $module = $dispatch_seq[$index - 1];
+        my $identifier = lc("${module}-$index");
+        my $package = "ILMT::$self->{src}::$self->{tgt}::$module";
+        $final_result{$identifier} = $package->can('process')->(%args);
+        $args{'data'} = $final_result{$identifier};
+    }
+    return \%final_result;
+}
+
 1;

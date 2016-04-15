@@ -73,3 +73,6 @@
 [submodule "modules/ILMT-PAN-HIN-Tokenizer"]
 	path = modules/ILMT-PAN-HIN-Tokenizer
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Tokenizer.git
+[submodule "modules/ILMT-PAN-HIN-Morph"]
+	path = modules/ILMT-PAN-HIN-Morph
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Morph.git

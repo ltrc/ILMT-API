@@ -17,6 +17,7 @@ any '/:src/:tgt/translate' => sub {
     my %args = %{$c->req->params->to_hash};
     $args{'src_lang'} = $c->param('src');
     $args{'tgt_lang'} = $c->param('tgt');
+    $args{'data'} = $args{'input'} = $args{'data'} // $args{'input'};
     $c->fork_call(
         sub {
             my (%args) = @_;
@@ -42,6 +43,7 @@ any '/:src/:tgt/:start/:end' => sub {
     my %args = %{$c->req->params->to_hash};
     $args{'src_lang'} = $c->param('src');
     $args{'tgt_lang'} = $c->param('tgt');
+    $args{'data'} = $args{'input'} = $args{'data'} // $args{'input'};
     $c->fork_call(
         sub {
             my (%args) = @_;

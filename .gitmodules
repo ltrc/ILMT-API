@@ -76,3 +76,6 @@
 [submodule "modules/ILMT-PAN-HIN-Morph"]
 	path = modules/ILMT-PAN-HIN-Morph
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Morph.git
+[submodule "modules/ILMT-PAN-HIN-POSTagger"]
+	path = modules/ILMT-PAN-HIN-POSTagger
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-POSTagger.git

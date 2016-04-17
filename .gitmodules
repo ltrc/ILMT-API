@@ -88,3 +88,9 @@
 [submodule "modules/ILMT-PAN-HIN-SSFAPI"]
 	path = modules/ILMT-PAN-HIN-SSFAPI
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-SSFAPI.git
+[submodule "modules/ILMT-PAN-HIN-GuessMorph"]
+	path = modules/ILMT-PAN-HIN-GuessMorph
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-GuessMorph.git
+[submodule "modules/ILMT-PAN-HIN-PickOneMorph"]
+	path = modules/ILMT-PAN-HIN-PickOneMorph
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-PickOneMorph.git

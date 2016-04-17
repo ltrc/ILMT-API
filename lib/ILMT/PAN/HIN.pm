@@ -13,7 +13,8 @@ my @seq = (
     "GuessMorph",
     "PickOneMorph",
     "ComputeHead",
-    "ComputeVibhakti"
+    "ComputeVibhakti",
+    "SimpleParser"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

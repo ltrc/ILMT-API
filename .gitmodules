@@ -100,3 +100,6 @@
 [submodule "modules/ILMT-PAN-HIN-ComputeVibhakti"]
 	path = modules/ILMT-PAN-HIN-ComputeVibhakti
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-ComputeVibhakti.git
+[submodule "modules/ILMT-PAN-HIN-SimpleParser"]
+	path = modules/ILMT-PAN-HIN-SimpleParser
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-SimpleParser.git

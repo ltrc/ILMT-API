@@ -11,7 +11,8 @@ my @seq = (
     "Chunker",
     "Prune",
     "GuessMorph",
-    "PickOneMorph"
+    "PickOneMorph",
+    "ComputeHead"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

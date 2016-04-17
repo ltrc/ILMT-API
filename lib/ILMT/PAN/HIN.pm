@@ -7,7 +7,8 @@ use ILMT::Translator;
 my @seq = (
     "Tokenizer",
     "Morph",
-    "POSTagger"
+    "POSTagger",
+    "Chunker"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

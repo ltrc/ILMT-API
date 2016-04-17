@@ -79,3 +79,6 @@
 [submodule "modules/ILMT-PAN-HIN-POSTagger"]
 	path = modules/ILMT-PAN-HIN-POSTagger
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-POSTagger.git
+[submodule "modules/ILMT-PAN-HIN-Chunker"]
+	path = modules/ILMT-PAN-HIN-Chunker
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Chunker.git

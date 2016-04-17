@@ -82,3 +82,9 @@
 [submodule "modules/ILMT-PAN-HIN-Chunker"]
 	path = modules/ILMT-PAN-HIN-Chunker
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Chunker.git
+[submodule "modules/ILMT-PAN-HIN-Prune"]
+	path = modules/ILMT-PAN-HIN-Prune
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Prune.git
+[submodule "modules/ILMT-PAN-HIN-SSFAPI"]
+	path = modules/ILMT-PAN-HIN-SSFAPI
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-SSFAPI.git

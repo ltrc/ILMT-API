@@ -97,3 +97,6 @@
 [submodule "modules/ILMT-PAN-HIN-ComputeHead"]
 	path = modules/ILMT-PAN-HIN-ComputeHead
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-ComputeHead.git
+[submodule "modules/ILMT-PAN-HIN-ComputeVibhakti"]
+	path = modules/ILMT-PAN-HIN-ComputeVibhakti
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-ComputeVibhakti.git

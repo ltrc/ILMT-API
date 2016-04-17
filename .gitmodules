@@ -103,3 +103,6 @@
 [submodule "modules/ILMT-PAN-HIN-SimpleParser"]
 	path = modules/ILMT-PAN-HIN-SimpleParser
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-SimpleParser.git
+[submodule "modules/ILMT-PAN-HIN-TransferGrammar"]
+	path = modules/ILMT-PAN-HIN-TransferGrammar
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-TransferGrammar.git

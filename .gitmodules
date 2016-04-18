@@ -115,3 +115,6 @@
 [submodule "modules/ILMT-PAN-HIN-Transliteration"]
 	path = modules/ILMT-PAN-HIN-Transliteration
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-Transliteration.git
+[submodule "modules/ILMT-PAN-HIN-AgreementFeature"]
+	path = modules/ILMT-PAN-HIN-AgreementFeature
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-AgreementFeature.git

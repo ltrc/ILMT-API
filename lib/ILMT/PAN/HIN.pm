@@ -18,7 +18,8 @@ my @seq = (
     "TransferGrammar",
     "LexicalTransfer",
     "Transliteration",
-    "UTF2WX"
+    "UTF2WX",
+    "AgreementFeature"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

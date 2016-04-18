@@ -124,3 +124,6 @@
 [submodule "modules/ILMT-PAN-HIN-InterChunk"]
 	path = modules/ILMT-PAN-HIN-InterChunk
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-InterChunk.git
+[submodule "modules/ILMT-PAN-HIN-IntraChunk"]
+	path = modules/ILMT-PAN-HIN-IntraChunk
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-IntraChunk.git

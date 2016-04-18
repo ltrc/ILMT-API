@@ -21,7 +21,8 @@ my @seq = (
     "UTF2WX",
     "AgreementFeature",
     "VibhaktiSplitter",
-    "InterChunk"
+    "InterChunk",
+    "IntraChunk"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

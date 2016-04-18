@@ -20,7 +20,8 @@ my @seq = (
     "Transliteration",
     "UTF2WX",
     "AgreementFeature",
-    "VibhaktiSplitter"
+    "VibhaktiSplitter",
+    "InterChunk"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("PAN", "HIN", \@seq);

@@ -106,3 +106,6 @@
 [submodule "modules/ILMT-PAN-HIN-TransferGrammar"]
 	path = modules/ILMT-PAN-HIN-TransferGrammar
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-TransferGrammar.git
+[submodule "modules/ILMT-PAN-HIN-LexicalTransfer"]
+	path = modules/ILMT-PAN-HIN-LexicalTransfer
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-LexicalTransfer.git

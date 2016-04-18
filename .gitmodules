@@ -118,3 +118,6 @@
 [submodule "modules/ILMT-PAN-HIN-AgreementFeature"]
 	path = modules/ILMT-PAN-HIN-AgreementFeature
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-AgreementFeature.git
+[submodule "modules/ILMT-PAN-HIN-VibhaktiSplitter"]
+	path = modules/ILMT-PAN-HIN-VibhaktiSplitter
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-VibhaktiSplitter.git

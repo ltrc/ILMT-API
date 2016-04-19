@@ -127,3 +127,15 @@
 [submodule "modules/ILMT-PAN-HIN-IntraChunk"]
 	path = modules/ILMT-PAN-HIN-IntraChunk
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-IntraChunk.git
+[submodule "modules/ILMT-PAN-HIN-DefaultFeatures"]
+	path = modules/ILMT-PAN-HIN-DefaultFeatures
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-DefaultFeatures.git
+[submodule "modules/ILMT-PAN-HIN-AgreementDistribution"]
+	path = modules/ILMT-PAN-HIN-AgreementDistribution
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-AgreementDistribution.git
+[submodule "modules/ILMT-PAN-HIN-WordGenerator"]
+	path = modules/ILMT-PAN-HIN-WordGenerator
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-WordGenerator.git
+[submodule "modules/ILMT-PAN-HIN-WX2UTF"]
+	path = modules/ILMT-PAN-HIN-WX2UTF
+	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-WX2UTF.git

@@ -7,6 +7,7 @@ use ILMT::Translator;
 my @seq = (
     "Tokenizer",
     "UTF2WX",
+    "Morph"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("HIN", "URD", \@seq);

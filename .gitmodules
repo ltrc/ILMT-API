@@ -145,3 +145,9 @@
 [submodule "modules/ILMT-HIN-URD-UTF2WX"]
 	path = modules/ILMT-HIN-URD-UTF2WX
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-UTF2WX.git
+[submodule "modules/ILMT-HIN-URD-Morph"]
+	path = modules/ILMT-HIN-URD-Morph
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Morph.git
+[submodule "modules/ILMT-HIN-URD-SSFAPI"]
+	path = modules/ILMT-HIN-URD-SSFAPI
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-SSFAPI.git

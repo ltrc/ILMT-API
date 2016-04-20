@@ -151,3 +151,6 @@
 [submodule "modules/ILMT-HIN-URD-SSFAPI"]
 	path = modules/ILMT-HIN-URD-SSFAPI
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-SSFAPI.git
+[submodule "modules/ILMT-HIN-URD-POSTagger"]
+	path = modules/ILMT-HIN-URD-POSTagger
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-POSTagger.git

@@ -163,3 +163,6 @@
 [submodule "modules/ILMT-HIN-URD-Chunker"]
 	path = modules/ILMT-HIN-URD-Chunker
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Chunker.git
+[submodule "modules/ILMT-HIN-URD-MWE"]
+	path = modules/ILMT-HIN-URD-MWE
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-MWE.git

@@ -47,29 +47,37 @@ sub get_langpairs {
 sub translate {
     my ($self, %args) = @_;
     my $result = "";
+    my @identifiers;
+    my %final_result;
     my @dispatch_seq = @{$self->{seq}};
     foreach my $index (0 .. $#dispatch_seq) {
         my $module = $dispatch_seq[$index ++];
         my $identifier = lc("${module}-$index");
+        push @identifiers, $identifier;
         my $package = "ILMT::$self->{src}::$self->{tgt}::$module";
         $args{$identifier} = $package->can('process')->(%args);
         $args{'data'} = $args{$identifier};
     }
-    return \%args;
+    @final_result{@identifiers} = @args{@identifiers};
+    return \%final_result;
 }
 
 sub partial_p {
     my ($self, $start, $end, %args) = @_;
     my $result = "";
     my @dispatch_seq = @{$self->{seq}};
+    my @identifiers;
+    my %final_result;
     foreach my $index ($start .. $end) {
         my $module = $dispatch_seq[$index - 1];
         my $identifier = lc("${module}-$index");
+        push @identifiers, $identifier;
         my $package = "ILMT::$self->{src}::$self->{tgt}::$module";
         $args{$identifier} = $package->can('process')->(%args);
         $args{'data'} = $args{$identifier};
     }
-    return \%args;
+    @final_result{@identifiers} = @args{@identifiers};
+    return \%final_result;
 }
 
 1;

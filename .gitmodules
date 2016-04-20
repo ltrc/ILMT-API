@@ -139,3 +139,6 @@
 [submodule "modules/ILMT-PAN-HIN-WX2UTF"]
 	path = modules/ILMT-PAN-HIN-WX2UTF
 	url = https://gitlab.com/ilmt/ILMT-PAN-HIN-WX2UTF.git
+[submodule "modules/ILMT-HIN-URD-Tokenizer"]
+	path = modules/ILMT-HIN-URD-Tokenizer
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Tokenizer.git

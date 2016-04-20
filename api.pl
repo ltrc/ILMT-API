@@ -7,6 +7,7 @@ use Mojolicious::Lite;
 use lib __DIR__ . "/lib";
 use ILMT::Translator qw(get_translator get_langpairs);
 use ILMT::HIN::PAN;
+use ILMT::HIN::URD;
 use ILMT::PAN::HIN;
 
 plugin qw(Mojolicious::Plugin::ForkCall);

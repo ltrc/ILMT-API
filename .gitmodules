@@ -157,3 +157,9 @@
 [submodule "modules/ILMT-HIN-URD-Prune"]
 	path = modules/ILMT-HIN-URD-Prune
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Prune.git
+[submodule "modules/ILMT-HIN-URD-PickOneMorph"]
+	path = modules/ILMT-HIN-URD-PickOneMorph
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-PickOneMorph.git
+[submodule "modules/ILMT-HIN-URD-Chunker"]
+	path = modules/ILMT-HIN-URD-Chunker
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Chunker.git

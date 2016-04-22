@@ -169,3 +169,6 @@
 [submodule "modules/ILMT-HIN-URD-NER"]
 	path = modules/ILMT-HIN-URD-NER
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-NER.git
+[submodule "modules/ILMT-HIN-URD-Merger"]
+	path = modules/ILMT-HIN-URD-Merger
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Merger.git

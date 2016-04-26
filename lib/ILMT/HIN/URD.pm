@@ -15,7 +15,8 @@ my @seq = (
     "MWE",
     "NER",
     "Merger",
-    "ComputeHead"
+    "ComputeHead",
+    "WX2UTF"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("HIN", "URD", \@seq);

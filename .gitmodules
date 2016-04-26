@@ -175,3 +175,6 @@
 [submodule "modules/ILMT-HIN-URD-ComputeHead"]
 	path = modules/ILMT-HIN-URD-ComputeHead
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-ComputeHead.git
+[submodule "modules/ILMT-HIN-URD-WX2UTF"]
+	path = modules/ILMT-HIN-URD-WX2UTF
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-WX2UTF.git

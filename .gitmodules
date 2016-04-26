@@ -172,3 +172,6 @@
 [submodule "modules/ILMT-HIN-URD-Merger"]
 	path = modules/ILMT-HIN-URD-Merger
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-Merger.git
+[submodule "modules/ILMT-HIN-URD-ComputeHead"]
+	path = modules/ILMT-HIN-URD-ComputeHead
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-ComputeHead.git

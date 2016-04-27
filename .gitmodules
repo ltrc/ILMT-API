@@ -190,3 +190,6 @@
 [submodule "modules/ILMT-HIN-URD-AgreementFeature"]
 	path = modules/ILMT-HIN-URD-AgreementFeature
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-AgreementFeature.git
+[submodule "modules/ILMT-HIN-URD-InterChunk"]
+	path = modules/ILMT-HIN-URD-InterChunk
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-InterChunk.git

@@ -178,3 +178,6 @@
 [submodule "modules/ILMT-HIN-URD-WX2UTF"]
 	path = modules/ILMT-HIN-URD-WX2UTF
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-WX2UTF.git
+[submodule "modules/ILMT-HIN-URD-LexicalTransfer"]
+	path = modules/ILMT-HIN-URD-LexicalTransfer
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-LexicalTransfer.git

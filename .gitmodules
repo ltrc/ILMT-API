@@ -199,3 +199,6 @@
 [submodule "modules/ILMT-HIN-URD-DefaultFeatures"]
 	path = modules/ILMT-HIN-URD-DefaultFeatures
 	url = https://gitlab.com/ilmt/ILMT-HIN-URD-DefaultFeatures.git
+[submodule "modules/ILMT-HIN-URD-WordGenerator"]
+	path = modules/ILMT-HIN-URD-WordGenerator
+	url = https://gitlab.com/ilmt/ILMT-HIN-URD-WordGenerator.git

@@ -208,3 +208,9 @@
 [submodule "modules/ILMT-URD-HIN-Tokenizer"]
 	path = modules/ILMT-URD-HIN-Tokenizer
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-Tokenizer.git
+[submodule "modules/ILMT-URD-HIN-SSFAPI"]
+	path = modules/ILMT-URD-HIN-SSFAPI
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-SSFAPI.git
+[submodule "modules/ILMT-URD-HIN-UTF2WX_U"]
+	path = modules/ILMT-URD-HIN-UTF2WX_U
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-UTF2WX_U.git

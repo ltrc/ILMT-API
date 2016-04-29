@@ -9,6 +9,7 @@ use ILMT::Translator qw(get_translator get_langpairs);
 use ILMT::HIN::PAN;
 use ILMT::HIN::URD;
 use ILMT::PAN::HIN;
+use ILMT::URD::HIN;
 
 plugin qw(Mojolicious::Plugin::ForkCall);
 

@@ -223,3 +223,6 @@
 [submodule "modules/ILMT-URD-HIN-POSTagger"]
 	path = modules/ILMT-URD-HIN-POSTagger
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-POSTagger.git
+[submodule "modules/ILMT-URD-HIN-Chunker"]
+	path = modules/ILMT-URD-HIN-Chunker
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-Chunker.git

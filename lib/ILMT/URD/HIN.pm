@@ -8,7 +8,8 @@ my @seq = (
     "Tokenizer",
     "UTF2WX_U",
     "Morph",
-    "WX2UTF_U"
+    "WX2UTF_U",
+    "POSTagger"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("URD", "HIN", \@seq);

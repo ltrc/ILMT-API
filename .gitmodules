@@ -220,3 +220,6 @@
 [submodule "modules/ILMT-URD-HIN-WX2UTF_U"]
 	path = modules/ILMT-URD-HIN-WX2UTF_U
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-WX2UTF_U.git
+[submodule "modules/ILMT-URD-HIN-POSTagger"]
+	path = modules/ILMT-URD-HIN-POSTagger
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-POSTagger.git

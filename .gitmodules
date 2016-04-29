@@ -214,3 +214,6 @@
 [submodule "modules/ILMT-URD-HIN-UTF2WX_U"]
 	path = modules/ILMT-URD-HIN-UTF2WX_U
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-UTF2WX_U.git
+[submodule "modules/ILMT-URD-HIN-Morph"]
+	path = modules/ILMT-URD-HIN-Morph
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-Morph.git

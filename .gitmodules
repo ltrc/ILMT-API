@@ -238,3 +238,6 @@
 [submodule "modules/ILMT-URD-HIN-LexicalTransfer"]
 	path = modules/ILMT-URD-HIN-LexicalTransfer
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-LexicalTransfer.git
+[submodule "modules/ILMT-URD-HIN-Transliteration"]
+	path = modules/ILMT-URD-HIN-Transliteration
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-Transliteration.git

@@ -16,7 +16,8 @@ my @seq = (
     "PickOneMorph",
     "ComputeHead",
     "WX2UTF_U",
-    "LexicalTransfer"
+    "LexicalTransfer",
+    "Transliteration"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("URD", "HIN", \@seq);

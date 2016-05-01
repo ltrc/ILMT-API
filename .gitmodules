@@ -235,3 +235,6 @@
 [submodule "modules/ILMT-URD-HIN-ComputeHead"]
 	path = modules/ILMT-URD-HIN-ComputeHead
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-ComputeHead.git
+[submodule "modules/ILMT-URD-HIN-LexicalTransfer"]
+	path = modules/ILMT-URD-HIN-LexicalTransfer
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-LexicalTransfer.git

@@ -232,3 +232,6 @@
 [submodule "modules/ILMT-URD-HIN-PickOneMorph"]
 	path = modules/ILMT-URD-HIN-PickOneMorph
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-PickOneMorph.git
+[submodule "modules/ILMT-URD-HIN-ComputeHead"]
+	path = modules/ILMT-URD-HIN-ComputeHead
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-ComputeHead.git

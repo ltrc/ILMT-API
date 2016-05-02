@@ -20,7 +20,8 @@ my @seq = (
     "Transliteration",
     "UTF2WX",
     "AgreementFeature",
-    "InterChunk"
+    "InterChunk",
+    "IntraChunk"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("URD", "HIN", \@seq);

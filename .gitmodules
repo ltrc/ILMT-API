@@ -250,3 +250,6 @@
 [submodule "modules/ILMT-URD-HIN-InterChunk"]
 	path = modules/ILMT-URD-HIN-InterChunk
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-InterChunk.git
+[submodule "modules/ILMT-URD-HIN-IntraChunk"]
+	path = modules/ILMT-URD-HIN-IntraChunk
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-IntraChunk.git

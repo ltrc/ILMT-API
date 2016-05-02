@@ -253,3 +253,6 @@
 [submodule "modules/ILMT-URD-HIN-IntraChunk"]
 	path = modules/ILMT-URD-HIN-IntraChunk
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-IntraChunk.git
+[submodule "modules/ILMT-URD-HIN-DefaultFeatures"]
+	path = modules/ILMT-URD-HIN-DefaultFeatures
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-DefaultFeatures.git

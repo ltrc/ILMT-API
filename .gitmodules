@@ -259,3 +259,6 @@
 [submodule "modules/ILMT-URD-HIN-WordGenerator"]
 	path = modules/ILMT-URD-HIN-WordGenerator
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-WordGenerator.git
+[submodule "modules/ILMT-URD-HIN-WX2UTF"]
+	path = modules/ILMT-URD-HIN-WX2UTF
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-WX2UTF.git

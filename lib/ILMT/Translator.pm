@@ -40,8 +40,7 @@ sub get_translator {
 }
 
 sub get_langpairs {
-    return map ((lc($_) =>
-            map (lc($_), keys %{$translator_table{$_}})), keys %translator_table);
+    return map +(lc $_ => [ map lc, keys %{$translator_table{$_}} ]), keys %translator_table;
 }
 
 sub translate {

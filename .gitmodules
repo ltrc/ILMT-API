@@ -241,3 +241,6 @@
 [submodule "modules/ILMT-URD-HIN-Transliteration"]
 	path = modules/ILMT-URD-HIN-Transliteration
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-Transliteration.git
+[submodule "modules/ILMT-URD-HIN-UTF2WX"]
+	path = modules/ILMT-URD-HIN-UTF2WX
+	url = https://gitlab.com/ilmt/ILMT-URD-HIN-UTF2WX.git

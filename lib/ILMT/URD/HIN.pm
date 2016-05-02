@@ -17,7 +17,8 @@ my @seq = (
     "ComputeHead",
     "WX2UTF_U",
     "LexicalTransfer",
-    "Transliteration"
+    "Transliteration",
+    "UTF2WX"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("URD", "HIN", \@seq);

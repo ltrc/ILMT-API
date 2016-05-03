@@ -52,6 +52,8 @@ function erasePreviousTranslations() {
     clearText('input');
     clearText('output');
     $('#aftermath').addClass('hidden');
+    translatedSentences = {};
+    updateProgressBar();
 }
 function getUniqID() {
     return 't' + Math.random().toString(36).substring(7);

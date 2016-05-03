@@ -64,7 +64,9 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     for (var k in result) {
         var ssfRow = ssfTable.insertRow();
         ssfRow.insertCell().innerHTML = k;
+        ssfRow.setAttribute("data-moduleid", k.split('-')[1]);
         ssfRow.id = k;
+        ssfRow.className = 'ssf-rows';
         var input = document.createElement("textarea");
         input.maxLength = "5000";
         input.cols = "50";
@@ -81,6 +83,7 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
         ssfInput.setAttribute("onClick", "javascript: specialUpdate('" + ssfTable.id+ "','" + k +"','" + input.id + "','" + src + "','" + tgt + "');");
         ssfRow.insertCell().appendChild(ssfInput);
     }
+
     var moduleCount = pairModuleCounts[src][tgt];
     var worgGenOut = result[pairModuleNames[src][tgt][moduleCount - 1] + '-' + moduleCount].split('\n');
     var tgtWords = "";
@@ -140,6 +143,10 @@ function fillTable(sentence, result, src, tgt, seqNumber) {
     cell.appendChild(ssfTable);
     $("#translate").append($("tr.translator-rows").get().sort(function(a, b) {
         return parseInt($(a).attr("data-rowid")) - parseInt($(b).attr("data-rowid"));
+    }));
+
+    $(ssfTable).append($("#" + ssfTable.id + " tr.ssf-rows").get().sort(function(a, b) {
+        return parseInt($(a).attr("data-moduleid")) - parseInt($(b).attr("data-moduleid"));
     }));
 
     translatedSentences[seqNumber] = tgtArea.textContent.replace(/(\r\n|\n|\r)/gm," ");

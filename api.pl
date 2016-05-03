@@ -10,6 +10,7 @@ use ILMT::HIN::PAN;
 use ILMT::HIN::URD;
 use ILMT::PAN::HIN;
 use ILMT::URD::HIN;
+use ILMT::TEL::HIN;
 
 plugin qw(Mojolicious::Plugin::ForkCall);
 

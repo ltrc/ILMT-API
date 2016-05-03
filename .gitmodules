@@ -262,3 +262,6 @@
 [submodule "modules/ILMT-URD-HIN-WX2UTF"]
 	path = modules/ILMT-URD-HIN-WX2UTF
 	url = https://gitlab.com/ilmt/ILMT-URD-HIN-WX2UTF.git
+[submodule "modules/ILMT-TEL-HIN-Tokenizer"]
+	path = modules/ILMT-TEL-HIN-Tokenizer
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Tokenizer.git

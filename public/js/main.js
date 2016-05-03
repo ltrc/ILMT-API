@@ -203,7 +203,7 @@ function fetchSentence(sentence, src, tgt, start, end, attempt, callback, seqNum
             callback(sentence, result, src, tgt, seqNumber);
         }
     }
-    var params = "input=" + sentence;
+    var params = "input=" + encodeURIComponent(sentence);
     xmlhttp.open("POST", "/" + src + "/" +tgt + "/" + start + "/" + end + "/", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(params);
@@ -318,7 +318,7 @@ function tokenizeInput(input, src, tgt, start, end, inputSeq) {
             }
         }
     }
-    var params = "input=" + input;
+    var params = "input=" + encodeURIComponent(input);
     xmlhttp.open("POST", "/" + src + "/" +tgt + "/1/1", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(params);

@@ -84,6 +84,11 @@ any '/langpairs' => sub {
     $c->render(json => \%langpairs);
 };
 
+get '/' => sub {
+    my $c = shift;
+    $c->reply->static('index.html');
+};
+
 app->start;
 __DATA__
 

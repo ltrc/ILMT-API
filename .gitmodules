@@ -277,3 +277,9 @@
 [submodule "modules/ILMT-TEL-HIN-Chunker"]
 	path = modules/ILMT-TEL-HIN-Chunker
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Chunker.git
+[submodule "modules/ILMT-TEL-HIN-Prune"]
+	path = modules/ILMT-TEL-HIN-Prune
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Prune.git
+[submodule "modules/ILMT-TEL-HIN-SSFAPI"]
+	path = modules/ILMT-TEL-HIN-SSFAPI
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-SSFAPI.git

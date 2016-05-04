@@ -9,7 +9,8 @@ my @seq = (
     "UTF2WX",
     "Morph",
     "POSTagger",
-    "Chunker"
+    "Chunker",
+    "Prune"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("TEL", "HIN", \@seq);

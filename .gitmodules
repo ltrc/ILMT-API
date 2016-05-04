@@ -271,3 +271,6 @@
 [submodule "modules/ILMT-TEL-HIN-Morph"]
 	path = modules/ILMT-TEL-HIN-Morph
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Morph.git
+[submodule "modules/ILMT-TEL-HIN-POSTagger"]
+	path = modules/ILMT-TEL-HIN-POSTagger
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-POSTagger.git

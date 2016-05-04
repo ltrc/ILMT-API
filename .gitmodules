@@ -283,3 +283,6 @@
 [submodule "modules/ILMT-TEL-HIN-SSFAPI"]
 	path = modules/ILMT-TEL-HIN-SSFAPI
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-SSFAPI.git
+[submodule "modules/ILMT-TEL-HIN-GuessMorph"]
+	path = modules/ILMT-TEL-HIN-GuessMorph
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-GuessMorph.git

@@ -274,3 +274,6 @@
 [submodule "modules/ILMT-TEL-HIN-POSTagger"]
 	path = modules/ILMT-TEL-HIN-POSTagger
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-POSTagger.git
+[submodule "modules/ILMT-TEL-HIN-Chunker"]
+	path = modules/ILMT-TEL-HIN-Chunker
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Chunker.git

@@ -11,7 +11,8 @@ my @seq = (
     "POSTagger",
     "Chunker",
     "Prune",
-    "GuessMorph"
+    "GuessMorph",
+    "PickOneMorph"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("TEL", "HIN", \@seq);

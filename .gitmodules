@@ -286,3 +286,6 @@
 [submodule "modules/ILMT-TEL-HIN-GuessMorph"]
 	path = modules/ILMT-TEL-HIN-GuessMorph
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-GuessMorph.git
+[submodule "modules/ILMT-TEL-HIN-PickOneMorph"]
+	path = modules/ILMT-TEL-HIN-PickOneMorph
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-PickOneMorph.git

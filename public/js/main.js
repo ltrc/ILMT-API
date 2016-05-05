@@ -11,12 +11,14 @@ var translatedSentences = {};
 var ISO_639RevMappings = {
     "hin": "Hindi (हिन्दी)",
     "pan": "Punjabi (ਪੰਜਾਬੀ)",
-    "urd": "Urdu (اردو)"
+    "urd": "Urdu (اردو)",
+    "tel": "Telugu (తెలుగు)"
 }
 var ISO_639_3_to_2Mapping = {
     "hin": "hi",
     "pan": "pa",
-    "urd": "ur"
+    "urd": "ur",
+    "tel": "te"
 }
 /* Unicode Ranges for a given language
  * Info Gathered from: http://jrgraphix.net/research/unicode_blocks.php

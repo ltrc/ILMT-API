@@ -295,3 +295,6 @@
 [submodule "modules/ILMT-TEL-HIN-ComputeHead"]
 	path = modules/ILMT-TEL-HIN-ComputeHead
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-ComputeHead.git
+[submodule "modules/ILMT-TEL-HIN-ComputeVibhakti"]
+	path = modules/ILMT-TEL-HIN-ComputeVibhakti
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-ComputeVibhakti.git

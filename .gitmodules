@@ -289,3 +289,6 @@
 [submodule "modules/ILMT-TEL-HIN-PickOneMorph"]
 	path = modules/ILMT-TEL-HIN-PickOneMorph
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-PickOneMorph.git
+[submodule "modules/ILMT-TEL-HIN-Repair"]
+	path = modules/ILMT-TEL-HIN-Repair
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-Repair.git

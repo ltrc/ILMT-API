@@ -15,7 +15,8 @@ my @seq = (
     "PickOneMorph",
     "Repair",
     "ComputeHead",
-    "ComputeVibhakti"
+    "ComputeVibhakti",
+    "SimpleParser"
 );
 
 my $langpair_obj = new_translator ILMT::Translator("TEL", "HIN", \@seq);

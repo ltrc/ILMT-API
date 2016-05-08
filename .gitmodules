@@ -298,3 +298,6 @@
 [submodule "modules/ILMT-TEL-HIN-ComputeVibhakti"]
 	path = modules/ILMT-TEL-HIN-ComputeVibhakti
 	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-ComputeVibhakti.git
+[submodule "modules/ILMT-TEL-HIN-SimpleParser"]
+	path = modules/ILMT-TEL-HIN-SimpleParser
+	url = https://gitlab.com/ilmt/ILMT-TEL-HIN-SimpleParser.git

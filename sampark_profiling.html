@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0062)https://web.iiit.ac.in/~sharada.mohanty/sampark_profiling.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="./sampark_profiling_files/pandoc.css" type="text/css">
+</head>
+<body>
+<ul>
+<li><strong>100.00%</strong> <code class="sourceCode bash"><span class="kw">perl</span> /usr/share/Dashboard/source/dash.pl -c /home/mohanty/sampark/bin/sys/tel_hin/tel_hin_setu.spec -i /home/mohanty/input.txt -l debug.log -o /home/mohanty/output</code>
+<ul>
+<li><strong>0.07%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/head</span> -1 /home/mohanty/sampark/bin/sys/tel_hin/tel_hin_setu.spec</code></li>
+<li><strong>98.24%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> tel_hin_setu.spec.exe -i /home/mohanty/input.txt -l debug.log</code>
+<ul>
+<li><strong>0.06%</strong> <code class="sourceCode bash"><span class="kw">/bin/pwd</span></code></li>
+<li><strong>0.08%</strong> <code class="sourceCode bash"><span class="kw">/bin/cp</span> /home/mohanty/input.txt input.tmp</code></li>
+<li><strong>3.76%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/morph/tel/morph.sh<span class="dt">\ \&lt;\ </span>input.tmp<span class="dt">\ \&gt;\ </span>morph-tel-3.1.tmp</code>
+</li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>morph-tel-3.1.tmp<span class="dt">\ \&gt;\ </span>all.out</code>
+</li>
+<li><strong>3.03%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/postagger/postagger.sh<span class="dt">\ \&lt;\ </span>morph-tel-3.1.tmp<span class="dt">\ \&gt;\ </span>postagger-crf-tel-1.4.1.tmp</code>
+</li>
+<li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ </span>morph-tel-3.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>2.41%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/chunker/tel/chunker.sh<span class="dt">\ \&lt;\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ \&gt;\ </span>chunker-crf-tel-1.3.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.16%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/pruning/pruning.sh<span class="dt">\ \&lt;\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ \&gt;\ </span>pruning-2.0.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>0.45%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/guess_morph/guess-morph.sh<span class="dt">\ \&lt;\ </span>pruning-2.0.tmp<span class="dt">\ \&gt;\ </span>guess-morph-1.1.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.08%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/pickonemorph/pickonemorph.sh<span class="dt">\ \&lt;\ </span>guess-morph-1.1.1.tmp<span class="dt">\ \&gt;\ </span>pickonemorph-1.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>7.23%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/repair/tel-hin/repair_tel_hin.sh<span class="dt">\ \&lt;\ </span>pickonemorph-1.1.tmp<span class="dt">\ \&gt;\ </span>repair-2.1.2.tmp</code>
+</li>
+<li><strong>0.22%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.16%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/headcomputation/headcomputation.sh<span class="dt">\ \&lt;\ </span>repair-2.1.2.tmp<span class="dt">\ \&gt;\ </span>headcomputation-1.8.tmp</code>
+</li>
+<li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.07%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/vibhakticomputation/vibhakticomputation.sh<span class="dt">\ \&lt;\ </span>headcomputation-1.8.tmp<span class="dt">\ \&gt;\ </span>vibhakticomputation-2.3.4.tmp</code>
+</li>
+<li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>2.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/simple_parser/parser_tel.sh<span class="dt">\ \&lt;\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ \&gt;\ </span>simpleparser-1.1.1.tmp</code>
+</li>
+<li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>11.57%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/transfergrammar/transfergrammar-tel.sh<span class="dt">\ \&lt;\ </span>simpleparser-1.1.1.tmp<span class="dt">\ \&gt;\ </span>transfergrammer-2.4.7.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.32%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/multiword/tel-hin/multiword.sh<span class="dt">\ \&lt;\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ \&gt;\ </span>multiword-2.1.2.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+
+<li><strong>13.70%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/lexicaltransfer.sh<span class="dt">\ \&lt;\ </span>multiword-2.1.2.tmp<span class="dt">\ \&gt;\ </span>lexicaltransfer-3.2.3.tmp</code>
+</li><li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>6.71%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/transliteration/transliteration_tel2hin_ssf.sh<span class="dt">\ \&lt;\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ \&gt;\ </span>translitration-3.4.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>3.29%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/infinity_to_root/infinity_to_root.sh<span class="dt">\ \&lt;\ </span>translitration-3.4.tmp<span class="dt">\ \&gt;\ </span>infinity2root-1.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>4.01%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/agreementfeature/agreementfeature.sh<span class="dt">\ \&lt;\ </span>infinity2root-1.1.tmp<span class="dt">\ \&gt;\ </span>agreementfeature-1.4.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>4.44%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/intrachunk/hin/intrachunk.sh<span class="dt">\ \&lt;\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ \&gt;\ </span>intrachunk-1.2.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.12%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/interchunk/interchunk.sh<span class="dt">\ \&lt;\ </span>intrachunk-1.2.1.tmp<span class="dt">\ \&gt;\ </span>interchunk-1.5.tmp</code>
+</li>
+<li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>interchunk-1.5.tmp<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>3.48%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/vibhaktispliter/vibhaktispliter.sh<span class="dt">\ \&lt;\ </span>interchunk-1.5.tmp<span class="dt">\ \&gt;\ </span>vibhaktispliter-2.5.2.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ </span>interchunk-1.5.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>1.13%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/agreementdistribution/agreementdistribution.sh<span class="dt">\ \&lt;\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ \&gt;\ </span>agreementdistribution-1.2.tmp</code>
+</li>
+<li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>agreementdistribution-1.2.tmp<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>1.81%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/defaultfeatures/defaultfeatures.sh<span class="dt">\ \&lt;\ </span>agreementdistribution-1.2.tmp<span class="dt">\ \&gt;\ </span>defaultfeatures-1.1.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ </span>agreementdistribution-1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>3.94%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/wordgenerator/hin/hinwordgen.sh<span class="dt">\ \&lt;\ </span>defaultfeatures-1.1.tmp<span class="dt">\ \&gt;\ </span>wordgenhin-2.1.1.tmp</code>
+</li>
+<li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+<li><strong>8.92%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/post_processor/hin/post_prs.sh<span class="dt">\ \&lt;\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ \&gt;\ </span>wordgen.tmp</code>
+</li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>wordgen.tmp<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>wordgen.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+</body></html>

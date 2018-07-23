@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0062)https://web.iiit.ac.in/~sharada.mohanty/sampark_profiling.html -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta http-equiv="Content-Style-Type" content="text/css">
@@ -37,113 +36,420 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><strong>0.06%</strong> <code class="sourceCode bash"><span class="kw">/bin/pwd</span></code></li>
 <li><strong>0.08%</strong> <code class="sourceCode bash"><span class="kw">/bin/cp</span> /home/mohanty/input.txt input.tmp</code></li>
 <li><strong>3.76%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/morph/tel/morph.sh<span class="dt">\ \&lt;\ </span>input.tmp<span class="dt">\ \&gt;\ </span>morph-tel-3.1.tmp</code>
-</li>
+<ul>
+<li><strong>96.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/morph/tel/morph.sh</code>
+<ul>
+<li><strong>4.15%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>4.49%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/deletesentencetag.pl</code></li>
+<li><strong>12.84%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/morph/tel/remove_zwj.pl</code></li>
+<li><strong>29.03%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/convertor-indic-1.4.8/convertor_indic.pl -f=ssf -l=tel -s=utf -t=wx -i=morph-temp -o=morph-splitin</code></li>
+<li><strong>11.61%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/morph/tel/word-split.pl</code></li>
+<li><strong>16.10%</strong> <code class="sourceCode bash"><span class="kw">/home/mohanty/sampark/bin/sl/morph/tel/morph.out</span> --pdgmfilepath /home/mohanty/sampark/data_bin/sl/morph/tel/ --uwordpath /home/mohanty/sampark/data_bin/sl/morph/tel/dict_tel --dictfilepath /home/mohanty/sampark/data_bin/sl/morph/tel -ULDWH --in=morph-splitout --out=morphoutput</code></li>
+<li><strong>12.55%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/morph/tel/cat-change.pl</code></li>
+<li><strong>4.17%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl morphoutput2</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>morph-tel-3.1.tmp<span class="dt">\ \&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>35.48%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> morph-tel-3.1.tmp</code></li>
+</ul></li>
 <li><strong>3.03%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/postagger/postagger.sh<span class="dt">\ \&lt;\ </span>morph-tel-3.1.tmp<span class="dt">\ \&gt;\ </span>postagger-crf-tel-1.4.1.tmp</code>
-</li>
+<ul>
+<li><strong>96.07%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/postagger/postagger.sh</code>
+<ul>
+<li><strong>5.20%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>6.24%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/deletesentencetag.pl</code></li>
+<li><strong>6.45%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/common/ssf2tnt.pl</code></li>
+<li><strong>6.44%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/common/extra_features.pl</code></li>
+<li><strong>4.56%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/crf_test</span> -m /home/mohanty/sampark/data_bin/sl/postagger/tel/200k_telugu_pos_model extra_input.tmp</code></li>
+<li><strong>5.97%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/common/split.pl</code></li>
+<li><strong>7.20%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/common/tnt2ssf.pl</code></li>
+<li><strong>22.26%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/pos_repair/pos_repair.pl --path=/home/mohanty/sampark/bin/sl/postagger/pos_repair --i postaggerout</code></li>
+<li><strong>6.52%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/pos-repair.pl postaggerout1</code></li>
+<li><strong>21.92%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/postagger/pos_repair/pos-repair_2.pl --path=/home/mohanty/sampark/bin/sl/postagger/pos_repair --i=postaggerout2</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ </span>morph-tel-3.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.82%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> postagger-crf-tel-1.4.1.tmp</code></li>
+</ul></li>
 <li><strong>2.41%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/chunker/tel/chunker.sh<span class="dt">\ \&lt;\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ \&gt;\ </span>chunker-crf-tel-1.3.1.tmp</code>
-</li>
+<ul>
+<li><strong>95.06%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/chunker/tel/chunker.sh</code>
+<ul>
+<li><strong>8.11%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/chunker/tel/common/ssf2tnt_pos.pl</code></li>
+<li><strong>5.33%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/crf_test</span> -m /home/mohanty/sampark/data_bin/sl/chunker/tel/200k_telugu_chunker_model chunkinput_pos.tnt</code></li>
+<li><strong>8.43%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/chunker/tel/common/convert_biotossf.pl</code></li>
+<li><strong>71.53%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/chunker/tel/chunk_repair/chunk_repair.pl --path=/home/mohanty/sampark/bin/sl/chunker/tel/chunk_repair --resource=/home/mohanty/sampark/bin/sl/chunker/tel/chunk_repair/Rules --input=chunker_out1.tnt</code>
+<ul>
+<li><strong>3.79%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f chunk_repair.log</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ </span>postagger-crf-tel-1.4.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>45.42%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> chunker-crf-tel-1.3.1.tmp</code></li>
+</ul></li>
 <li><strong>1.16%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/pruning/pruning.sh<span class="dt">\ \&lt;\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ \&gt;\ </span>pruning-2.0.tmp</code>
-</li>
+<ul>
+<li><strong>88.80%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/pruning/pruning.sh</code>
+<ul>
+<li><strong>14.62%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>72.69%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/pruning/pruning.pl --path=/home/mohanty/sampark/bin/sl/pruning --resource=/home/mohanty/sampark/data_bin/sl/pruning/mapping.dat --input=pruneinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ </span>chunker-crf-tel-1.3.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>34.29%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> pruning-2.0.tmp</code></li>
+</ul></li>
 <li><strong>0.45%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/guess_morph/guess-morph.sh<span class="dt">\ \&lt;\ </span>pruning-2.0.tmp<span class="dt">\ \&gt;\ </span>guess-morph-1.1.1.tmp</code>
-</li>
+<ul>
+<li><strong>73.65%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/guess_morph/guess-morph.sh</code>
+<ul>
+<li><strong>64.86%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/guess_morph/guess-morph.pl</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ </span>pruning-2.0.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>34.33%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> guess-morph-1.1.1.tmp</code></li>
+</ul></li>
 <li><strong>1.08%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/pickonemorph/pickonemorph.sh<span class="dt">\ \&lt;\ </span>guess-morph-1.1.1.tmp<span class="dt">\ \&gt;\ </span>pickonemorph-1.1.tmp</code>
-</li>
+<ul>
+<li><strong>88.98%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/pickonemorph/pickonemorph.sh</code>
+<ul>
+<li><strong>18.01%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>68.51%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/pickonemorph/pickonemorph.pl --path=/home/mohanty/sampark/bin/sl/pickonemorph --input=pickonemorphinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ </span>guess-morph-1.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>34.04%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> pickonemorph-1.1.tmp</code></li>
+</ul></li>
 <li><strong>7.23%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/repair/tel-hin/repair_tel_hin.sh<span class="dt">\ \&lt;\ </span>pickonemorph-1.1.tmp<span class="dt">\ \&gt;\ </span>repair-2.1.2.tmp</code>
-</li>
+<ul>
+<li><strong>98.37%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/repair/tel-hin/repair_tel_hin.sh</code>
+<ul>
+<li><strong>2.13%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>9.87%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/failsafe/tel_failsafe.pl --path=/home/mohanty/sampark/bin/sl/failsafe --i repairinput</code></li>
+<li><strong>63.20%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/repair/tel-hin/repair.pl --path=/home/mohanty/sampark/bin/sl/repair/tel-hin --log=/home/mohanty/sampark/bin/sl/repair/tel-hin/repair.log --resource=/home/mohanty/sampark/data_bin/sl/repair/tel-hin/trRules --input=repairinput1</code>
+<ul>
+<li><strong>1.38%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f /home/mohanty/sampark/bin/sl/repair/tel-hin/repair.log</code></li>
+</ul></li>
+<li><strong>2.71%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/repair/tel-hin/copula_inseartion.pl repairout</code></li>
+<li><strong>8.94%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/repair/tel-hin/rule_guess_morph/cat_repair.pl --path=/home/mohanty/sampark/bin/sl/repair/tel-hin/rule_guess_morph --input=repairout1</code></li>
+<li><strong>10.75%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/repair/tel-hin/onto_lex/onto_lex.pl --path=/home/mohanty/sampark/bin/sl/repair/tel-hin/onto_lex --male=/home/mohanty/sampark/bin/sl/repair/tel-hin/onto_lex/data_src/male-tel-noun --female=/home/mohanty/sampark/bin/sl/repair/tel-hin/onto_lex/data_src/female-tel-noun --input=repairout2</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.22%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ </span>pickonemorph-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> repair-2.1.2.tmp</code></li>
+</ul></li>
 <li><strong>1.16%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/headcomputation/headcomputation.sh<span class="dt">\ \&lt;\ </span>repair-2.1.2.tmp<span class="dt">\ \&gt;\ </span>headcomputation-1.8.tmp</code>
-</li>
+<ul>
+<li><strong>89.83%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/headcomputation/headcomputation.sh</code>
+<ul>
+<li><strong>14.47%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>71.79%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/headcomputation/headcomputation.pl --path=/home/mohanty/sampark/bin/sl/headcomputation --input=headcomputationinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ </span>repair-2.1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> headcomputation-1.8.tmp</code></li>
+</ul></li>
 <li><strong>1.07%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/vibhakticomputation/vibhakticomputation.sh<span class="dt">\ \&lt;\ </span>headcomputation-1.8.tmp<span class="dt">\ \&gt;\ </span>vibhakticomputation-2.3.4.tmp</code>
-</li>
+<ul>
+<li><strong>89.02%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/vibhakticomputation/vibhakticomputation.sh</code>
+<ul>
+<li><strong>15.80%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>70.81%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/vibhakticomputation/vibhakticomputation.pl --path=/home/mohanty/sampark/bin/sl/vibhakticomputation --input=vibhakticomputationinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ </span>headcomputation-1.8.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>2.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl/simple_parser/parser_tel.sh<span class="dt">\ \&lt;\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ \&gt;\ </span>simpleparser-1.1.1.tmp</code>
-</li>
+<ul>
+<li><strong>95.77%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl/simple_parser/parser_tel.sh</code>
+<ul>
+<li><strong>5.50%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>58.95%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/simple_parser/parser_tel.pl --path=/home/mohanty/sampark/bin/sl/simple_parser --rulefile=/home/mohanty/sampark/bin/sl/simple_parser/parser_rules_tel.txt --input=parserinput</code></li>
+<li><strong>23.83%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl/simple_parser/agent_change/agent_change.pl --path=/home/mohanty/sampark/bin/sl/simple_parser/agent_change --i=parseroutput</code></li>
+<li><strong>5.61%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/addsentencetag.pl</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ </span>vibhakticomputation-2.3.4.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>36.06%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> simpleparser-1.1.1.tmp</code></li>
+</ul></li>
 <li><strong>11.57%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/transfergrammar/transfergrammar-tel.sh<span class="dt">\ \&lt;\ </span>simpleparser-1.1.1.tmp<span class="dt">\ \&gt;\ </span>transfergrammer-2.4.7.tmp</code>
-</li>
+<ul>
+<li><strong>98.91%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl_tl/transfergrammar/transfergrammar-tel.sh</code>
+<ul>
+<li><strong>1.32%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>97.54%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transfergrammar/transfergrammar.pl --path=/home/mohanty/sampark/bin/sl_tl/transfergrammar --resource=/home/mohanty/sampark/data_bin/sl_tl/transfergrammar/tRules --input=transferinput</code>
+<ul>
+<li><strong>0.56%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f transfer.log</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ </span>simpleparser-1.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.60%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> transfergrammer-2.4.7.tmp</code></li>
+</ul></li>
 <li><strong>1.32%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/multiword/tel-hin/multiword.sh<span class="dt">\ \&lt;\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ \&gt;\ </span>multiword-2.1.2.tmp</code>
-</li>
+<ul>
+<li><strong>91.05%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl_tl/multiword/tel-hin/multiword.sh</code>
+<ul>
+<li><strong>12.57%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>75.25%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/multiword/tel-hin/multiword.pl --path=/home/mohanty/sampark/bin/sl_tl/multiword/tel-hin --resource=/home/mohanty/sampark/data_bin/sl_tl/multiword/tel-hin --input=multiwordin</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ </span>transfergrammer-2.4.7.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
-
+<ul>
+<li><strong>34.47%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> multiword-2.1.2.tmp</code></li>
+</ul></li>
 <li><strong>13.70%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/lexicaltransfer.sh<span class="dt">\ \&lt;\ </span>multiword-2.1.2.tmp<span class="dt">\ \&gt;\ </span>lexicaltransfer-3.2.3.tmp</code>
-</li><li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
+<ul>
+<li><strong>99.07%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/lexicaltransfer.sh</code>
+<ul>
+<li><strong>1.11%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>4.77%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/temp/remove_0.pl --path=/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/temp --input=lexinput --output=lex-temp</code></li>
+<li><strong>7.54%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub/change-pn.pl --path=/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub --input=lex-temp</code></li>
+<li><strong>8.67%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/convertor-indic-1.4.7/convertor_indic.pl -f=ssf -l=tel -s=wx -t=utf --i=lexrep</code></li>
+<li><strong>1.14%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/addsentencetag.pl</code></li>
+<li><strong>52.98%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/java</span> -classpath /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/common:/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/common/lib/SSFAPI.jar:/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/common/lib/log4j-1.2.15.jar in.ac.iitb.cfilt.lte.LexicalTransferEngine -d4 -u/home/mohanty/sampark -sTEL -tHIN -y -l -i lex-input -o lexoutput</code></li>
+<li><strong>5.31%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/avy-replace.pl --path=/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel --input=lexoutput --output=lexoutput1</code></li>
+<li><strong>9.22%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub/tam-suff.pl --path=/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub --input=lexoutput1</code></li>
+<li><strong>7.80%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub/correction.pl --path=/home/mohanty/sampark/bin/sl_tl/lexicaltransfer/tel/tam-sub --i=lexoutput2</code></li>
+</ul></li>
+</ul></li>
+<li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ </span>multiword-2.1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>32.45%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> lexicaltransfer-3.2.3.tmp</code></li>
+</ul></li>
 <li><strong>6.71%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/transliteration/transliteration_tel2hin_ssf.sh<span class="dt">\ \&lt;\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ \&gt;\ </span>translitration-3.4.tmp</code>
-</li>
+<ul>
+<li><strong>98.23%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl_tl/transliteration/transliteration_tel2hin_ssf.sh</code>
+<ul>
+<li><strong>2.30%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>95.44%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/transliteration.pl --path=/home/mohanty/sampark/bin/sl_tl/transliteration --stype=ssf --slang=tel --tlang=hin</code>
+<ul>
+<li><strong>1.57%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>0<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.94%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>yaha<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.94%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.72%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>yaha<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>0<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.94%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.69%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>word\</code></li>
+<li><strong>4.97%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl\ /home/mohanty/sampark/bin/sl_tl/transliteration<span class="dt">\ </span>word<span class="dt">\ \&gt;\ </span>out_word</code>
+<ul>
+<li><strong>64.43%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl /home/mohanty/sampark/bin/sl_tl/transliteration word</code></li>
+</ul></li>
+<li><strong>1.59%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>pakkane<span class="dt">\ \&gt;\ </span>word</code></li>
+<li><strong>1.69%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/wx_to_i8.exe<span class="dt">\ \&lt;\ \ </span>word<span class="dt">\ \&gt;\ </span>tmp.is</code></li>
+<li><strong>5.14%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl<span class="dt">\ \ \&lt;\ </span>tmp.is<span class="dt">\ \&gt;\ </span>outword</code>
+<ul>
+<li><strong>65.49%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl</code></li>
+</ul></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f tmp.is</code></li>
+<li><strong>0.98%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word out_word</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word outword</code></li>
+<li><strong>1.59%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.61%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>word</code></li>
+<li><strong>4.69%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl\ /home/mohanty/sampark/bin/sl_tl/transliteration<span class="dt">\ </span>word<span class="dt">\ \&gt;\ </span>out_word</code>
+<ul>
+<li><strong>62.90%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl /home/mohanty/sampark/bin/sl_tl/transliteration word</code></li>
+</ul></li>
+<li><strong>1.70%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>pakkane<span class="dt">\ \&gt;\ </span>word</code></li>
+<li><strong>1.69%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/wx_to_i8.exe<span class="dt">\ \&lt;\ \ </span>word<span class="dt">\ \&gt;\ </span>tmp.is</code></li>
+<li><strong>5.11%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl<span class="dt">\ \ \&lt;\ </span>tmp.is<span class="dt">\ \&gt;\ </span>outword</code>
+<ul>
+<li><strong>65.87%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl</code></li>
+</ul></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f tmp.is</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word out_word</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word outword</code></li>
+<li><strong>1.73%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>పక్కనే<span class="dt">\ \&gt;\ </span>word\</code></li>
+<li><strong>4.72%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl\ /home/mohanty/sampark/bin/sl_tl/transliteration<span class="dt">\ </span>word<span class="dt">\ \&gt;\ </span>out_word</code>
+<ul>
+<li><strong>63.08%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/tel/convert.pl /home/mohanty/sampark/bin/sl_tl/transliteration word</code></li>
+</ul></li>
+<li><strong>1.59%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>pakkane<span class="dt">\ \&gt;\ </span>word</code></li>
+<li><strong>1.70%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/wx_to_i8.exe<span class="dt">\ \&lt;\ \ </span>word<span class="dt">\ \&gt;\ </span>tmp.is</code></li>
+<li><strong>5.15%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c perl\ /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl<span class="dt">\ \ \&lt;\ </span>tmp.is<span class="dt">\ \&gt;\ </span>outword</code>
+<ul>
+<li><strong>65.51%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/transliteration/bin/hin/iscii2utf8.pl</code></li>
+</ul></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f tmp.is</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word out_word</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f word outword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>0<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.61%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>का<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.58%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>0<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.96%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.61%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>nahIM+<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>0.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+<li><strong>1.59%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c echo<span class="dt">\ </span>nahIM+<span class="dt">\ \&gt;\ </span>lanword</code></li>
+<li><strong>1.09%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f lanword</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ </span>lexicaltransfer-3.2.3.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>34.29%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> translitration-3.4.tmp</code></li>
+</ul></li>
 <li><strong>3.29%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/sl_tl/infinity_to_root/infinity_to_root.sh<span class="dt">\ \&lt;\ </span>translitration-3.4.tmp<span class="dt">\ \&gt;\ </span>infinity2root-1.1.tmp</code>
-</li>
+<ul>
+<li><strong>96.40%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/sl_tl/infinity_to_root/infinity_to_root.sh</code>
+<ul>
+<li><strong>4.82%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>36.29%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/convertor-indic-1.4.8/convertor_indic.pl -f=ssf -l=hin -s=utf -t=wx -i=infinity_to_rootinput</code></li>
+<li><strong>20.63%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/infinity_to_root/infinity_to_root.pl --path=/home/mohanty/sampark/bin/sl_tl/infinity_to_root --input=infinity_to_rootinput1</code></li>
+<li><strong>33.60%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sl_tl/infinity_to_root/tr_itrverb/tr_itrverb.pl --path=/home/mohanty/sampark/bin/sl_tl/infinity_to_root/tr_itrverb --input=infinity_to_rootout</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ </span>translitration-3.4.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>31.72%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> infinity2root-1.1.tmp</code></li>
+</ul></li>
 <li><strong>4.01%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/agreementfeature/agreementfeature.sh<span class="dt">\ \&lt;\ </span>infinity2root-1.1.tmp<span class="dt">\ \&gt;\ </span>agreementfeature-1.4.1.tmp</code>
-</li>
+<ul>
+<li><strong>97.04%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/agreementfeature/agreementfeature.sh</code>
+<ul>
+<li><strong>4.03%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code>
+<ul>
+<li><strong>109.64%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/remove_at.pl</code></li>
+</ul></li>
+<li><strong>45.64%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/agreementfeature/agreementfeature.pl --path=/home/mohanty/sampark/bin/tl/agreementfeature --female=/home/mohanty/sampark/bin/tl/agreementfeature/common/feminine_nouns --logFile=agreementfeature.log --input=agreementfeatureinput</code></li>
+<li><strong>29.81%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/agreementfeature/agr_warpper_1.pl --path=/home/mohanty/sampark/bin/tl/agreementfeature --input=agreementout</code>
+<ul>
+<li><strong>154.22%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/agreementfeature/mUla_kriya/mula_kriya.pl --path=/home/mohanty/sampark/bin/tl/agreementfeature/mUla_kriya</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ </span>infinity2root-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> agreementfeature-1.4.1.tmp</code></li>
+</ul></li>
 <li><strong>4.44%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/intrachunk/hin/intrachunk.sh<span class="dt">\ \&lt;\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ \&gt;\ </span>intrachunk-1.2.1.tmp</code>
-</li>
+<ul>
+<li><strong>97.29%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/intrachunk/hin/intrachunk.sh</code>
+<ul>
+<li><strong>3.50%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>27.62%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/intrachunk/hin/intrachunk.pl --path=/home/mohanty/sampark/bin/tl/intrachunk/hin --rule=/home/mohanty/sampark/bin/tl/intrachunk/hin/hin/rule.rl --input=intrachunkinput</code></li>
+<li><strong>42.13%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/intrachunk/hin/ne_insertion/ne_insertion.pl --path=/home/mohanty/sampark/bin/tl/intrachunk/hin/ne_insertion --i intrachunkout</code></li>
+<li><strong>22.94%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/intrachunk/hin/agr-wrapper/erg_agr.pl --path=/home/mohanty/sampark/bin/tl/intrachunk/hin/agr-wrapper --i intrachunkout1</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ </span>agreementfeature-1.4.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.82%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> intrachunk-1.2.1.tmp</code></li>
+</ul></li>
 <li><strong>1.12%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/interchunk/interchunk.sh<span class="dt">\ \&lt;\ </span>intrachunk-1.2.1.tmp<span class="dt">\ \&gt;\ </span>interchunk-1.5.tmp</code>
-</li>
+<ul>
+<li><strong>88.60%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/interchunk/interchunk.sh</code>
+<ul>
+<li><strong>15.27%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>71.85%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/interchunk/interchunk.pl --path=/home/mohanty/sampark/bin/tl/interchunk -i interchunkinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>interchunk-1.5.tmp<span class="dt">\ </span>intrachunk-1.2.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>3.48%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/vibhaktispliter/vibhaktispliter.sh<span class="dt">\ \&lt;\ </span>interchunk-1.5.tmp<span class="dt">\ \&gt;\ </span>vibhaktispliter-2.5.2.tmp</code>
-</li>
+<ul>
+<li><strong>96.61%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/vibhaktispliter/vibhaktispliter.sh</code>
+<ul>
+<li><strong>4.49%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>26.32%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/vibhaktispliter/adj-const/adj-const.pl --path=/home/mohanty/sampark/bin/tl/vibhaktispliter/adj-const --i vibhsplitinput</code></li>
+<li><strong>22.08%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/vibhaktispliter/vibhaktispliter.pl --path=/home/mohanty/sampark/bin/tl/vibhaktispliter -i vibhsplitinput1</code></li>
+<li><strong>22.20%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/vibhaktispliter/jjpvg_agr/jjpvg_agr.pl --path=/home/mohanty/sampark/bin/tl/vibhaktispliter/jjpvg_agr --i vibhsplitout</code></li>
+<li><strong>20.24%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/vibhaktispliter/jjpvg_agr/tam-change.pl --path=/home/mohanty/sampark/bin/tl/vibhaktispliter/jjpvg_agr --i vibhsplitout1</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ </span>interchunk-1.5.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>39.35%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> vibhaktispliter-2.5.2.tmp</code></li>
+</ul></li>
 <li><strong>1.13%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/agreementdistribution/agreementdistribution.sh<span class="dt">\ \&lt;\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ \&gt;\ </span>agreementdistribution-1.2.tmp</code>
-</li>
+<ul>
+<li><strong>89.46%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/agreementdistribution/agreementdistribution.sh</code>
+<ul>
+<li><strong>15.00%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>72.22%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/agreementdistribution/agreementdistribution.pl --path=/home/mohanty/sampark/bin/tl/agreementdistribution --rulefile /home/mohanty/sampark/bin/tl/agreementdistribution/hin/rule.rl -i agreementinput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.19%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>agreementdistribution-1.2.tmp<span class="dt">\ </span>vibhaktispliter-2.5.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>1.81%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/defaultfeatures/defaultfeatures.sh<span class="dt">\ \&lt;\ </span>agreementdistribution-1.2.tmp<span class="dt">\ \&gt;\ </span>defaultfeatures-1.1.tmp</code>
-</li>
+<ul>
+<li><strong>93.06%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/defaultfeatures/defaultfeatures.sh</code>
+<ul>
+<li><strong>8.95%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>43.34%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/defaultfeatures/defaultfeatures.pl --path=/home/mohanty/sampark/bin/tl/defaultfeatures --rule /home/mohanty/sampark/bin/tl/defaultfeatures/hin/rule.rl --input=defaultfeaturesinput</code></li>
+<li><strong>39.50%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/defaultfeatures/defaultfeatures_wrapper.pl --path=/home/mohanty/sampark/bin/tl/defaultfeatures --rule /home/mohanty/sampark/bin/tl/defaultfeatures/hin/rule_hcu.rl --input=defaultfeatureout</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ </span>agreementdistribution-1.2.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.95%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> defaultfeatures-1.1.tmp</code></li>
+</ul></li>
 <li><strong>3.94%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/wordgenerator/hin/hinwordgen.sh<span class="dt">\ \&lt;\ </span>defaultfeatures-1.1.tmp<span class="dt">\ \&gt;\ </span>wordgenhin-2.1.1.tmp</code>
-</li>
+<ul>
+<li><strong>97.00%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/wordgenerator/hin/hinwordgen.sh</code>
+<ul>
+<li><strong>3.95%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>92.36%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/wordgenerator/hin/hin_gen.pl --path=/home/mohanty/sampark/bin/tl/wordgenerator/hin --input=hinwordgeninput</code></li>
+</ul></li>
+</ul></li>
 <li><strong>0.21%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ </span>defaultfeatures-1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.86%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> wordgenhin-2.1.1.tmp</code></li>
+</ul></li>
 <li><strong>8.92%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c sh\ /home/mohanty/sampark/bin/tl/post_processor/hin/post_prs.sh<span class="dt">\ \&lt;\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ \&gt;\ </span>wordgen.tmp</code>
-</li>
+<ul>
+<li><strong>98.61%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> /home/mohanty/sampark/bin/tl/post_processor/hin/post_prs.sh</code>
+<ul>
+<li><strong>1.72%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/printinput.pl</code></li>
+<li><strong>1.94%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/post_processor/hin/remove_ssf.pl</code></li>
+<li><strong>16.33%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/post_processor/hin/post_prs.pl --path=/home/mohanty/sampark/bin/tl/post_processor/hin --resource=/home/mohanty/sampark/bin/tl/post_processor/hin/phrule --input=postprsinput1</code>
+<ul>
+<li><strong>4.32%</strong> <code class="sourceCode bash"><span class="kw">/bin/rm</span> -f transfer.log</code></li>
+</ul></li>
+<li><strong>64.68%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/tl/post_processor/hin/postaling/postaling.pl --path=/home/mohanty/sampark/bin/tl/post_processor/hin/postaling --i postprsout</code></li>
+<li><strong>13.39%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/convertor-indic-1.4.7/convertor_indic.pl -f=ssf -l=hin -s=wx -t=utf -i=postprsout2</code>
+<ul>
+<li><strong>100.95%</strong> <code class="sourceCode bash"><span class="kw">/usr/bin/perl</span> /home/mohanty/sampark/bin/sys/common/addsentencetag.pl</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><strong>0.20%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c diff<span class="dt">\ </span>wordgen.tmp<span class="dt">\ </span>wordgenhin-2.1.1.tmp<span class="dt">\ </span>2<span class="dt">\&gt;\&gt;</span>error_file</code></li>
 <li><strong>0.18%</strong> <code class="sourceCode bash"><span class="kw">/bin/sh</span> -c cat<span class="dt">\ </span>wordgen.tmp<span class="dt">\ \&gt;\&gt;\ </span>all.out</code>
-</li>
+<ul>
+<li><strong>33.82%</strong> <code class="sourceCode bash"><span class="kw">/bin/cat</span> wordgen.tmp</code></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
